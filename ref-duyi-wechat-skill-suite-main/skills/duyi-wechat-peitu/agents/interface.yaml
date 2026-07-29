@@ -1,0 +1,24 @@
+interface:
+  display_name: "公众号配图"
+  short_description: "生成公众号封面与正文小黑插图，默认交付实际图片。"
+  default_prompt: "Use $duyi-wechat-peitu to generate WeChat cover and Xiaohei body illustrations."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "claude"
+    - "openai"
+    - "generic"
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    claude: "neutral-source-plus-adapter"
+    openai: "metadata-adapter"
+    generic: "neutral-source"

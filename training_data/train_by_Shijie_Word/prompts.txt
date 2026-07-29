@@ -1,0 +1,30 @@
+https://notebooklm.google.com/
+* NotebookLM生成文章podcast
+- Do not mention "deep dive".
+- Length of the podcast: no more than 10 minutes.
+- Mention the authors of the paper.
+- Structure: focus on the research question, the method, the conclusions, and the novel contributions.
+- Language: intuitive, humorous, inspiring
+- Features: example-based, analogy-assisted, practice-oriented.
+
+
+* ChatGPT生成文章解读帖子
+read the full file
+[Who] Assume you are a social media officer for an academic association, specialising in applied economics. 
+[Readership] The main readers are university students and academic researchers, but make it approachable to wider audience as much as possible.
+[Style] You are writing a social media post, trying to attract as many readers as possible.
+[Feature] intuitive, humorous, inspiring
+[Language] 简体中文.
+[Structure] Based on the uploaded article, write a social media post using the following structure:
+* 文章题目（中文翻译/English）
+* 列出相关的Sustainable Development Goals
+* 作者信息（不超过300字）
+* 研究问题：用具有吸引力和传播力的生动语言，说明文章中的研究问题为什么值得研究，并且详细探讨文章所用到的核心概念和核心变量（解释时在核心概念和变量后面用括号标上英文原文），这个部分大概500字左右
+* 核心结论：这个部分大概300字左右，这个部分需要具体细节和证据支持，需要引用文中的具体图表或者数学公式
+* 文章贡献（novel contributions）：这个部分大概300字左右，聚焦比较有新意的重要结论
+* 方法简介（这里可以稍微展开一些，不限于文章本身，与相似方法进行对比讨论）：这个部分大概300字左右
+* 结论讨论（比如robustness，heterogeneity，limitations等）：这个部分大概300字左右，需要一些具体细节和证据支持
+* 实践意义：这个部分大概300字左右，从政策制定者、消费者、企业等主体的角度分别讨论
+* 未来研究：这个部分大概200字左右，基于这个文章，讨论未来有可以拓展的研究方向
+
+** A good starting point, but each section is too simple. Substantiate sections of 研究问题, 核心结论, 文章贡献, 方法简介, 结论讨论, 实践意义, 未来研究.

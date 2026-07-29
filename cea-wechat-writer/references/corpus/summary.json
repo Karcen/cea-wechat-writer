@@ -1,0 +1,26 @@
+{
+  "html_total": 119,
+  "html_clean": 118,
+  "word_total": 12,
+  "candidate_pairs": 8,
+  "html_text_quality": {
+    "degraded_mojibake": 84,
+    "usable": 34,
+    "unavailable": 1
+  },
+  "html_categories": {
+    "会议通知": 20,
+    "学会历史": 7,
+    "学术前沿": 7,
+    "广纳英才": 2,
+    "文章解读": 34,
+    "新近动态": 42,
+    "特刊推荐": 7
+  },
+  "html_with_cea_footer": 106,
+  "word_categories": {
+    "文章解读": 7,
+    "学术前沿": 4,
+    "会议通知": 1
+  }
+}

@@ -1,0 +1,1824 @@
+/*
+  WeChat Premium Themes
+  Goal: stable, excellent public-account article layouts inspired by world-class
+  product, editorial, and magazine design systems.
+
+  Usage:
+  <section class="wx-article wx-theme-apple-gallery">...</section>
+
+  Final WeChat publishing should inline these styles before pasting into the
+  WeChat editor. Raw <style> and class selectors are for preview/build stages.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+.wx-article {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 28px 22px 48px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wx-article h1,
+.wx-article h2,
+.wx-article h3,
+.wx-article p,
+.wx-article blockquote,
+.wx-article ul,
+.wx-article ol,
+.wx-article table,
+.wx-article figure,
+.wx-article pre {
+  margin-top: 0;
+}
+
+.wx-article img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wx-article a {
+  text-decoration: none;
+}
+
+.wx-kicker {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.wx-lead {
+  margin-bottom: 1.55em;
+}
+
+.wx-card,
+.wx-callout,
+.wx-note,
+.wx-pullquote {
+  margin: 28px 0;
+}
+
+.wx-card {
+  padding: 18px 18px 16px;
+}
+
+.wx-callout,
+.wx-note {
+  padding: 18px 18px 16px;
+}
+
+.wx-pullquote {
+  padding: 0;
+}
+
+.wx-section-label {
+  display: inline-block;
+  margin: 34px 0 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.wx-meta {
+  margin: 0 0 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.wx-grid {
+  display: block;
+  margin: 26px 0;
+}
+
+.wx-metric {
+  margin: 0 0 12px;
+  padding: 15px 16px 14px;
+}
+
+.wx-metric strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.wx-caption {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.wx-divider {
+  width: 100%;
+  height: 1px;
+  margin: 34px 0;
+  border: 0;
+}
+
+.wx-cta {
+  margin: 34px 0 0;
+  padding: 18px 18px 16px;
+}
+
+.wx-footnote {
+  margin-top: 34px;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* 01. Apple Product Gallery */
+.wx-theme-apple-gallery {
+  padding: 34px 22px 54px;
+  background: #fff;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.92;
+  letter-spacing: 0;
+}
+
+.wx-theme-apple-gallery .wx-kicker {
+  color: #0066cc;
+}
+
+.wx-theme-apple-gallery h1 {
+  margin: 0 0 18px;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 30px;
+  line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.wx-theme-apple-gallery .wx-lead {
+  color: #6e6e73;
+  font-size: 20px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.wx-theme-apple-gallery h2 {
+  margin: 2.2em 0 .85em;
+  color: #1d1d1f;
+  font-size: 23px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.wx-theme-apple-gallery h3 {
+  margin: 1.65em 0 .7em;
+  color: #1d1d1f;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.wx-theme-apple-gallery p {
+  margin: 0 0 1.35em;
+  color: #2c2c2e;
+  font-size: 17px;
+  line-height: 1.92;
+}
+
+.wx-theme-apple-gallery strong,
+.wx-theme-apple-gallery mark {
+  background: transparent;
+  color: #0066cc;
+  font-weight: 700;
+}
+
+.wx-theme-apple-gallery blockquote,
+.wx-theme-apple-gallery .wx-card,
+.wx-theme-apple-gallery .wx-callout,
+.wx-theme-apple-gallery .wx-note,
+.wx-theme-apple-gallery .wx-cta {
+  border: 1px solid #e8e8ed;
+  border-radius: 18px;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.wx-theme-apple-gallery blockquote {
+  padding: 20px 20px 18px;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.wx-theme-apple-gallery .wx-pullquote {
+  color: #1d1d1f;
+  font-size: 24px;
+  line-height: 1.38;
+  font-weight: 700;
+}
+
+.wx-theme-apple-gallery code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-apple-gallery pre,
+.wx-theme-apple-gallery table {
+  border: 1px solid #e8e8ed;
+  border-radius: 14px;
+  background: #f5f5f7;
+}
+
+.wx-theme-apple-gallery pre {
+  padding: 16px;
+  overflow-x: auto;
+  color: #1d1d1f;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.wx-theme-apple-gallery table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-apple-gallery th,
+.wx-theme-apple-gallery td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e8e8ed;
+  text-align: left;
+}
+
+.wx-theme-apple-gallery figure {
+  margin: 30px 0;
+}
+
+.wx-theme-apple-gallery img {
+  border-radius: 18px;
+}
+
+.wx-theme-apple-gallery .wx-caption,
+.wx-theme-apple-gallery .wx-meta,
+.wx-theme-apple-gallery .wx-footnote {
+  color: #86868b;
+}
+
+.wx-theme-apple-gallery .wx-divider {
+  background: #e8e8ed;
+}
+
+/* 02. Stripe Infrastructure Notes */
+.wx-theme-stripe-infra {
+  padding: 30px 22px 50px;
+  background: #f6f9fc;
+  color: #273951;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.wx-theme-stripe-infra .wx-kicker {
+  color: #533afd;
+}
+
+.wx-theme-stripe-infra h1 {
+  margin: 0 0 18px;
+  color: #0d253d;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 760;
+}
+
+.wx-theme-stripe-infra .wx-lead {
+  color: #64748d;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.wx-theme-stripe-infra h2 {
+  margin: 2.05em 0 .85em;
+  color: #1c1e54;
+  font-size: 21px;
+  line-height: 1.42;
+  font-weight: 750;
+}
+
+.wx-theme-stripe-infra h3 {
+  margin: 1.65em 0 .65em;
+  color: #0d253d;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 720;
+}
+
+.wx-theme-stripe-infra p,
+.wx-theme-stripe-infra li {
+  color: #273951;
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.wx-theme-stripe-infra p {
+  margin: 0 0 1.35em;
+}
+
+.wx-theme-stripe-infra strong,
+.wx-theme-stripe-infra mark,
+.wx-theme-stripe-infra a {
+  background: transparent;
+  color: #533afd;
+  font-weight: 720;
+}
+
+.wx-theme-stripe-infra blockquote,
+.wx-theme-stripe-infra .wx-card,
+.wx-theme-stripe-infra .wx-callout,
+.wx-theme-stripe-infra .wx-note,
+.wx-theme-stripe-infra .wx-metric,
+.wx-theme-stripe-infra .wx-cta {
+  border: 1px solid #e3e8ee;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(13, 37, 61, .06);
+}
+
+.wx-theme-stripe-infra blockquote {
+  padding: 18px 18px 16px;
+  border-left: 4px solid #533afd;
+  color: #273951;
+  line-height: 1.82;
+}
+
+.wx-theme-stripe-infra .wx-pullquote {
+  color: #1c1e54;
+  font-size: 22px;
+  line-height: 1.42;
+  font-weight: 750;
+}
+
+.wx-theme-stripe-infra code {
+  padding: 2px 5px;
+  border: 1px solid #e3e8ee;
+  border-radius: 5px;
+  background: #fff;
+  color: #533afd;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-stripe-infra pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e3e8ee;
+  border-radius: 12px;
+  background: #0d253d;
+  color: #e6f0ff;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.wx-theme-stripe-infra table {
+  width: 100%;
+  margin: 26px 0;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-stripe-infra th,
+.wx-theme-stripe-infra td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e3e8ee;
+  text-align: left;
+}
+
+.wx-theme-stripe-infra th {
+  color: #1c1e54;
+}
+
+.wx-theme-stripe-infra img {
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(13, 37, 61, .08);
+}
+
+.wx-theme-stripe-infra .wx-caption,
+.wx-theme-stripe-infra .wx-meta,
+.wx-theme-stripe-infra .wx-footnote {
+  color: #64748d;
+}
+
+.wx-theme-stripe-infra .wx-divider {
+  background: #e3e8ee;
+}
+
+/* 03. Linear Precision Memo */
+.wx-theme-linear-memo {
+  padding: 30px 22px 50px;
+  background: #fafafa;
+  color: #3a3a40;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.wx-theme-linear-memo .wx-kicker,
+.wx-theme-linear-memo .wx-section-label {
+  color: #5e6ad2;
+}
+
+.wx-theme-linear-memo h1 {
+  margin: 0 0 17px;
+  color: #0d0e10;
+  font-size: 27px;
+  line-height: 1.18;
+  font-weight: 760;
+}
+
+.wx-theme-linear-memo .wx-lead {
+  color: #62666d;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.wx-theme-linear-memo h2 {
+  margin: 2.1em 0 .82em;
+  padding-left: 12px;
+  border-left: 3px solid #5e6ad2;
+  color: #0d0e10;
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 740;
+}
+
+.wx-theme-linear-memo h3 {
+  margin: 1.6em 0 .65em;
+  color: #2a2a30;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.wx-theme-linear-memo p,
+.wx-theme-linear-memo li {
+  color: #3a3a40;
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.wx-theme-linear-memo p {
+  margin: 0 0 1.28em;
+}
+
+.wx-theme-linear-memo strong,
+.wx-theme-linear-memo mark,
+.wx-theme-linear-memo a {
+  background: transparent;
+  color: #5e6ad2;
+  font-weight: 720;
+}
+
+.wx-theme-linear-memo blockquote,
+.wx-theme-linear-memo .wx-card,
+.wx-theme-linear-memo .wx-callout,
+.wx-theme-linear-memo .wx-note,
+.wx-theme-linear-memo .wx-metric,
+.wx-theme-linear-memo .wx-cta {
+  border: 1px solid #e6e6ea;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.wx-theme-linear-memo blockquote {
+  padding: 18px 18px 16px;
+  color: #2a2a30;
+  border-left: 4px solid #5e6ad2;
+}
+
+.wx-theme-linear-memo .wx-pullquote {
+  color: #0d0e10;
+  font-size: 22px;
+  line-height: 1.42;
+  font-weight: 760;
+}
+
+.wx-theme-linear-memo code {
+  padding: 2px 5px;
+  border: 1px solid #e6e6ea;
+  border-radius: 5px;
+  background: #fff;
+  color: #5e6ad2;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-linear-memo pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e6e6ea;
+  border-radius: 10px;
+  background: #111113;
+  color: #f4f4f5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.wx-theme-linear-memo table {
+  width: 100%;
+  margin: 26px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-linear-memo th,
+.wx-theme-linear-memo td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #e6e6ea;
+  text-align: left;
+}
+
+.wx-theme-linear-memo img {
+  border-radius: 10px;
+}
+
+.wx-theme-linear-memo .wx-caption,
+.wx-theme-linear-memo .wx-meta,
+.wx-theme-linear-memo .wx-footnote {
+  color: #8a8f98;
+}
+
+.wx-theme-linear-memo .wx-divider {
+  background: #e6e6ea;
+}
+
+/* 04. Vercel Minimal Release */
+.wx-theme-vercel-minimal {
+  padding: 30px 22px 50px;
+  background: #fafafa;
+  color: #3f3f46;
+  font-family: -apple-system, BlinkMacSystemFont, "Geist", "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.wx-theme-vercel-minimal .wx-kicker,
+.wx-theme-vercel-minimal .wx-section-label {
+  color: #000;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+
+.wx-theme-vercel-minimal h1 {
+  margin: 0 0 16px;
+  color: #000;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 760;
+}
+
+.wx-theme-vercel-minimal .wx-lead {
+  color: #71717a;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.wx-theme-vercel-minimal h2 {
+  margin: 2.1em 0 .8em;
+  color: #000;
+  font-size: 21px;
+  line-height: 1.42;
+  font-weight: 740;
+}
+
+.wx-theme-vercel-minimal h3 {
+  margin: 1.55em 0 .62em;
+  color: #000;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.wx-theme-vercel-minimal p,
+.wx-theme-vercel-minimal li {
+  color: #3f3f46;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.wx-theme-vercel-minimal p {
+  margin: 0 0 1.25em;
+}
+
+.wx-theme-vercel-minimal strong,
+.wx-theme-vercel-minimal mark,
+.wx-theme-vercel-minimal a {
+  background: transparent;
+  color: #000;
+  font-weight: 760;
+}
+
+.wx-theme-vercel-minimal blockquote,
+.wx-theme-vercel-minimal .wx-card,
+.wx-theme-vercel-minimal .wx-callout,
+.wx-theme-vercel-minimal .wx-note,
+.wx-theme-vercel-minimal .wx-metric,
+.wx-theme-vercel-minimal .wx-cta {
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.wx-theme-vercel-minimal blockquote {
+  padding: 17px 18px 15px;
+  border-left: 4px solid #000;
+  color: #27272a;
+}
+
+.wx-theme-vercel-minimal .wx-pullquote {
+  color: #000;
+  font-size: 24px;
+  line-height: 1.34;
+  font-weight: 760;
+}
+
+.wx-theme-vercel-minimal code {
+  padding: 2px 5px;
+  border: 1px solid #e4e4e7;
+  border-radius: 5px;
+  background: #fff;
+  color: #000;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-vercel-minimal pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  background: #000;
+  color: #fafafa;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.wx-theme-vercel-minimal table {
+  width: 100%;
+  margin: 26px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.wx-theme-vercel-minimal th,
+.wx-theme-vercel-minimal td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #e4e4e7;
+  text-align: left;
+}
+
+.wx-theme-vercel-minimal img {
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+}
+
+.wx-theme-vercel-minimal .wx-caption,
+.wx-theme-vercel-minimal .wx-meta,
+.wx-theme-vercel-minimal .wx-footnote {
+  color: #71717a;
+}
+
+.wx-theme-vercel-minimal .wx-divider {
+  background: #e4e4e7;
+}
+
+/* 05. Claude Research Notebook */
+.wx-theme-claude-research {
+  padding: 32px 22px 52px;
+  background: #faf9f5;
+  color: #3d3d3a;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.wx-theme-claude-research .wx-kicker,
+.wx-theme-claude-research .wx-section-label {
+  color: #cc785c;
+}
+
+.wx-theme-claude-research h1 {
+  margin: 0 0 18px;
+  color: #141413;
+  font-family: Georgia, "Songti SC", STSong, SimSun, serif;
+  font-size: 29px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.wx-theme-claude-research .wx-lead {
+  color: #6c6a64;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.wx-theme-claude-research h2 {
+  margin: 2.15em 0 .9em;
+  color: #5a4e3c;
+  font-family: Georgia, "Songti SC", STSong, SimSun, serif;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.wx-theme-claude-research h3 {
+  margin: 1.65em 0 .7em;
+  color: #5a4e3c;
+  font-size: 17px;
+  line-height: 1.58;
+  font-weight: 700;
+}
+
+.wx-theme-claude-research p,
+.wx-theme-claude-research li {
+  color: #3d3d3a;
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.wx-theme-claude-research p {
+  margin: 0 0 1.48em;
+}
+
+.wx-theme-claude-research strong,
+.wx-theme-claude-research mark,
+.wx-theme-claude-research a {
+  background: transparent;
+  color: #cc785c;
+  font-weight: 720;
+}
+
+.wx-theme-claude-research blockquote,
+.wx-theme-claude-research .wx-card,
+.wx-theme-claude-research .wx-callout,
+.wx-theme-claude-research .wx-note,
+.wx-theme-claude-research .wx-metric,
+.wx-theme-claude-research .wx-cta {
+  border: 1px solid #e6dfd8;
+  border-radius: 12px;
+  background: #f5f0e8;
+}
+
+.wx-theme-claude-research blockquote {
+  padding: 20px 20px 18px;
+  border-left: 4px solid #cc785c;
+  color: #3d3d3a;
+}
+
+.wx-theme-claude-research .wx-pullquote {
+  color: #5a4e3c;
+  font-family: Georgia, "Songti SC", STSong, SimSun, serif;
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.wx-theme-claude-research code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #f5f0e8;
+  color: #9a563f;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-claude-research pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e6dfd8;
+  border-radius: 12px;
+  background: #2f2923;
+  color: #faf9f5;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-claude-research table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+.wx-theme-claude-research th,
+.wx-theme-claude-research td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e6dfd8;
+  text-align: left;
+}
+
+.wx-theme-claude-research img {
+  border-radius: 12px;
+}
+
+.wx-theme-claude-research .wx-caption,
+.wx-theme-claude-research .wx-meta,
+.wx-theme-claude-research .wx-footnote {
+  color: #8e8b82;
+}
+
+.wx-theme-claude-research .wx-divider {
+  background: #e6dfd8;
+}
+
+/* 06. Notion Knowledge Base */
+.wx-theme-notion-knowledge {
+  padding: 30px 22px 50px;
+  background: #fdfdfb;
+  color: #37352f;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.wx-theme-notion-knowledge .wx-kicker,
+.wx-theme-notion-knowledge .wx-section-label {
+  color: #5645d4;
+}
+
+.wx-theme-notion-knowledge h1 {
+  margin: 0 0 18px;
+  color: #1a1a1a;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 760;
+}
+
+.wx-theme-notion-knowledge .wx-lead {
+  color: #787774;
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+.wx-theme-notion-knowledge h2 {
+  margin: 2.1em 0 .85em;
+  color: #252323;
+  font-size: 21px;
+  line-height: 1.48;
+  font-weight: 740;
+}
+
+.wx-theme-notion-knowledge h3 {
+  margin: 1.65em 0 .68em;
+  color: #252323;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.wx-theme-notion-knowledge p,
+.wx-theme-notion-knowledge li {
+  color: #37352f;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.wx-theme-notion-knowledge p {
+  margin: 0 0 1.36em;
+}
+
+.wx-theme-notion-knowledge strong,
+.wx-theme-notion-knowledge mark,
+.wx-theme-notion-knowledge a {
+  background: transparent;
+  color: #5645d4;
+  font-weight: 720;
+}
+
+.wx-theme-notion-knowledge blockquote,
+.wx-theme-notion-knowledge .wx-card,
+.wx-theme-notion-knowledge .wx-callout,
+.wx-theme-notion-knowledge .wx-note,
+.wx-theme-notion-knowledge .wx-metric,
+.wx-theme-notion-knowledge .wx-cta {
+  border: 1px solid #e6e3df;
+  border-radius: 6px;
+  background: #fafaf9;
+}
+
+.wx-theme-notion-knowledge blockquote {
+  padding: 17px 18px 15px;
+  border-left: 4px solid #5645d4;
+  color: #37352f;
+}
+
+.wx-theme-notion-knowledge .wx-pullquote {
+  color: #252323;
+  font-size: 23px;
+  line-height: 1.42;
+  font-weight: 760;
+}
+
+.wx-theme-notion-knowledge code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #f0efed;
+  color: #5645d4;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-notion-knowledge pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e6e3df;
+  border-radius: 6px;
+  background: #fafaf9;
+  color: #37352f;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-notion-knowledge table {
+  width: 100%;
+  margin: 26px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-notion-knowledge th,
+.wx-theme-notion-knowledge td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #e6e3df;
+  text-align: left;
+}
+
+.wx-theme-notion-knowledge img {
+  border-radius: 6px;
+}
+
+.wx-theme-notion-knowledge .wx-caption,
+.wx-theme-notion-knowledge .wx-meta,
+.wx-theme-notion-knowledge .wx-footnote {
+  color: #9b9a97;
+}
+
+.wx-theme-notion-knowledge .wx-divider {
+  background: #e6e3df;
+}
+
+/* 07. Economist Briefing */
+.wx-theme-economist-briefing {
+  padding: 32px 21px 52px;
+  background: #f7f5f2;
+  color: #2a2a2a;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.wx-theme-economist-briefing .wx-kicker,
+.wx-theme-economist-briefing .wx-section-label {
+  color: #e3120b;
+}
+
+.wx-theme-economist-briefing h1 {
+  margin: 0 0 18px;
+  color: #111;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", "Songti SC", STSong, SimSun, serif;
+  font-size: 30px;
+  line-height: 1.16;
+  font-weight: 700;
+}
+
+.wx-theme-economist-briefing .wx-lead {
+  color: #1a1a1a;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", "Songti SC", STSong, SimSun, serif;
+  font-size: 19px;
+  line-height: 1.58;
+}
+
+.wx-theme-economist-briefing h2 {
+  margin: 2.05em 0 .78em;
+  padding-top: 10px;
+  border-top: 3px solid #e3120b;
+  color: #111;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", "Songti SC", serif;
+  font-size: 22px;
+  line-height: 1.42;
+  font-weight: 700;
+}
+
+.wx-theme-economist-briefing h3 {
+  margin: 1.55em 0 .65em;
+  color: #111;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.wx-theme-economist-briefing p,
+.wx-theme-economist-briefing li {
+  color: #2a2a2a;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.wx-theme-economist-briefing p {
+  margin: 0 0 1.55em;
+}
+
+.wx-theme-economist-briefing strong,
+.wx-theme-economist-briefing mark,
+.wx-theme-economist-briefing a {
+  background: transparent;
+  color: #e3120b;
+  font-weight: 720;
+}
+
+.wx-theme-economist-briefing blockquote,
+.wx-theme-economist-briefing .wx-card,
+.wx-theme-economist-briefing .wx-callout,
+.wx-theme-economist-briefing .wx-note,
+.wx-theme-economist-briefing .wx-metric,
+.wx-theme-economist-briefing .wx-cta {
+  border: 1px solid #d9d4cd;
+  background: #fff;
+}
+
+.wx-theme-economist-briefing blockquote {
+  padding: 18px 18px 16px;
+  border-left: 4px solid #e3120b;
+  color: #1a1a1a;
+}
+
+.wx-theme-economist-briefing .wx-pullquote {
+  color: #111;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", "Songti SC", serif;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.wx-theme-economist-briefing code {
+  padding: 2px 5px;
+  background: #fff;
+  color: #e3120b;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-economist-briefing pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #d9d4cd;
+  background: #111;
+  color: #f7f5f2;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-economist-briefing table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-economist-briefing th,
+.wx-theme-economist-briefing td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d9d4cd;
+  text-align: left;
+}
+
+.wx-theme-economist-briefing img {
+  border-radius: 0;
+}
+
+.wx-theme-economist-briefing .wx-caption,
+.wx-theme-economist-briefing .wx-meta,
+.wx-theme-economist-briefing .wx-footnote {
+  color: #6b6b6b;
+}
+
+.wx-theme-economist-briefing .wx-divider {
+  background: #d9d4cd;
+}
+
+/* 08. FT Newsprint */
+.wx-theme-ft-newsprint {
+  padding: 32px 21px 52px;
+  background: #fff1e5;
+  color: #262a33;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.wx-theme-ft-newsprint .wx-kicker,
+.wx-theme-ft-newsprint .wx-section-label {
+  color: #990f3d;
+}
+
+.wx-theme-ft-newsprint h1 {
+  margin: 0 0 18px;
+  color: #262a33;
+  font-family: Georgia, "Times New Roman", "Songti SC", STSong, SimSun, serif;
+  font-size: 30px;
+  line-height: 1.18;
+  font-weight: 700;
+}
+
+.wx-theme-ft-newsprint .wx-lead {
+  color: #50565f;
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.wx-theme-ft-newsprint h2 {
+  margin: 2.1em 0 .85em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #262a33;
+  color: #262a33;
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.wx-theme-ft-newsprint h3 {
+  margin: 1.6em 0 .68em;
+  color: #262a33;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.wx-theme-ft-newsprint p,
+.wx-theme-ft-newsprint li {
+  color: #262a33;
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.wx-theme-ft-newsprint p {
+  margin: 0 0 1.5em;
+}
+
+.wx-theme-ft-newsprint strong,
+.wx-theme-ft-newsprint mark,
+.wx-theme-ft-newsprint a {
+  background: transparent;
+  color: #990f3d;
+  font-weight: 720;
+}
+
+.wx-theme-ft-newsprint blockquote,
+.wx-theme-ft-newsprint .wx-card,
+.wx-theme-ft-newsprint .wx-callout,
+.wx-theme-ft-newsprint .wx-note,
+.wx-theme-ft-newsprint .wx-metric,
+.wx-theme-ft-newsprint .wx-cta {
+  border: 1px solid #d8c3b0;
+  background: #fff8f2;
+}
+
+.wx-theme-ft-newsprint blockquote {
+  padding: 18px 18px 16px;
+  border-left: 4px solid #990f3d;
+}
+
+.wx-theme-ft-newsprint .wx-pullquote {
+  color: #262a33;
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.wx-theme-ft-newsprint code {
+  padding: 2px 5px;
+  background: #fff8f2;
+  color: #990f3d;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-ft-newsprint pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #d8c3b0;
+  background: #262a33;
+  color: #fff1e5;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-ft-newsprint table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  background: #fff8f2;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-ft-newsprint th,
+.wx-theme-ft-newsprint td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d8c3b0;
+  text-align: left;
+}
+
+.wx-theme-ft-newsprint img {
+  border-radius: 0;
+}
+
+.wx-theme-ft-newsprint .wx-caption,
+.wx-theme-ft-newsprint .wx-meta,
+.wx-theme-ft-newsprint .wx-footnote {
+  color: #6b625c;
+}
+
+.wx-theme-ft-newsprint .wx-divider {
+  background: #d8c3b0;
+}
+
+/* 09. NYT Sunday Essay */
+.wx-theme-nyt-essay {
+  padding: 34px 22px 54px;
+  background: #fff;
+  color: #111;
+  font-family: Georgia, "Times New Roman", "Songti SC", STSong, SimSun, serif;
+  font-size: 17px;
+  line-height: 1.86;
+}
+
+.wx-theme-nyt-essay .wx-kicker,
+.wx-theme-nyt-essay .wx-section-label {
+  color: #555;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+}
+
+.wx-theme-nyt-essay h1 {
+  margin: 0 0 20px;
+  color: #111;
+  font-size: 32px;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.wx-theme-nyt-essay .wx-lead {
+  color: #333;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.wx-theme-nyt-essay h2 {
+  margin: 2.15em 0 .85em;
+  color: #111;
+  font-size: 23px;
+  line-height: 1.42;
+  font-weight: 700;
+}
+
+.wx-theme-nyt-essay h3 {
+  margin: 1.65em 0 .7em;
+  color: #111;
+  font-size: 18px;
+  line-height: 1.52;
+  font-weight: 700;
+}
+
+.wx-theme-nyt-essay p,
+.wx-theme-nyt-essay li {
+  color: #111;
+  font-size: 17px;
+  line-height: 1.86;
+}
+
+.wx-theme-nyt-essay p {
+  margin: 0 0 1.45em;
+}
+
+.wx-theme-nyt-essay strong,
+.wx-theme-nyt-essay mark,
+.wx-theme-nyt-essay a {
+  background: transparent;
+  color: #111;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.wx-theme-nyt-essay blockquote,
+.wx-theme-nyt-essay .wx-pullquote {
+  margin: 30px 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid #111;
+  color: #111;
+  font-size: 22px;
+  line-height: 1.48;
+  font-weight: 700;
+}
+
+.wx-theme-nyt-essay .wx-card,
+.wx-theme-nyt-essay .wx-callout,
+.wx-theme-nyt-essay .wx-note,
+.wx-theme-nyt-essay .wx-metric,
+.wx-theme-nyt-essay .wx-cta {
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  background: #fff;
+}
+
+.wx-theme-nyt-essay code {
+  padding: 2px 5px;
+  background: #f5f5f5;
+  color: #111;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .88em;
+}
+
+.wx-theme-nyt-essay pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-nyt-essay table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-nyt-essay th,
+.wx-theme-nyt-essay td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d6d6d6;
+  text-align: left;
+}
+
+.wx-theme-nyt-essay img {
+  border-radius: 0;
+}
+
+.wx-theme-nyt-essay .wx-caption,
+.wx-theme-nyt-essay .wx-meta,
+.wx-theme-nyt-essay .wx-footnote {
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+}
+
+.wx-theme-nyt-essay .wx-divider {
+  background: #111;
+}
+
+/* 10. WIRED Tech Culture */
+.wx-theme-wired-culture {
+  padding: 30px 21px 50px;
+  background: #fff;
+  color: #151515;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.wx-theme-wired-culture .wx-kicker,
+.wx-theme-wired-culture .wx-section-label {
+  padding: 3px 7px;
+  background: #151515;
+  color: #fff;
+  letter-spacing: .08em;
+}
+
+.wx-theme-wired-culture h1 {
+  margin: 0 0 18px;
+  color: #151515;
+  font-size: 31px;
+  line-height: 1.08;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.wx-theme-wired-culture .wx-lead {
+  color: #3a3a3a;
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.wx-theme-wired-culture h2 {
+  margin: 2.05em 0 .82em;
+  color: #151515;
+  font-size: 22px;
+  line-height: 1.32;
+  font-weight: 850;
+}
+
+.wx-theme-wired-culture h3 {
+  margin: 1.55em 0 .65em;
+  color: #151515;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.wx-theme-wired-culture p,
+.wx-theme-wired-culture li {
+  color: #151515;
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.wx-theme-wired-culture p {
+  margin: 0 0 1.36em;
+}
+
+.wx-theme-wired-culture strong,
+.wx-theme-wired-culture mark,
+.wx-theme-wired-culture a {
+  background: #d7ff00;
+  color: #151515;
+  font-weight: 800;
+}
+
+.wx-theme-wired-culture blockquote,
+.wx-theme-wired-culture .wx-card,
+.wx-theme-wired-culture .wx-callout,
+.wx-theme-wired-culture .wx-note,
+.wx-theme-wired-culture .wx-metric,
+.wx-theme-wired-culture .wx-cta {
+  border: 2px solid #151515;
+  background: #fff;
+  box-shadow: 5px 5px 0 #d7ff00;
+}
+
+.wx-theme-wired-culture blockquote {
+  padding: 18px 18px 16px;
+  color: #151515;
+  font-weight: 650;
+}
+
+.wx-theme-wired-culture .wx-pullquote {
+  color: #151515;
+  font-size: 25px;
+  line-height: 1.28;
+  font-weight: 850;
+}
+
+.wx-theme-wired-culture code {
+  padding: 2px 5px;
+  background: #151515;
+  color: #d7ff00;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-wired-culture pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 2px solid #151515;
+  background: #151515;
+  color: #d7ff00;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-wired-culture table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.wx-theme-wired-culture th,
+.wx-theme-wired-culture td {
+  padding: 11px 9px;
+  border-bottom: 2px solid #151515;
+  text-align: left;
+}
+
+.wx-theme-wired-culture img {
+  border: 2px solid #151515;
+  border-radius: 0;
+}
+
+.wx-theme-wired-culture .wx-caption,
+.wx-theme-wired-culture .wx-meta,
+.wx-theme-wired-culture .wx-footnote {
+  color: #666;
+}
+
+.wx-theme-wired-culture .wx-divider {
+  background: #151515;
+}
+
+/* 11. The Verge Signal */
+.wx-theme-verge-signal {
+  padding: 30px 21px 50px;
+  background: #fff;
+  color: #151515;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.wx-theme-verge-signal .wx-kicker,
+.wx-theme-verge-signal .wx-section-label {
+  color: #e6007a;
+}
+
+.wx-theme-verge-signal h1 {
+  margin: 0 0 18px;
+  color: #151515;
+  font-size: 30px;
+  line-height: 1.12;
+  font-weight: 850;
+}
+
+.wx-theme-verge-signal .wx-lead {
+  color: #383838;
+  font-size: 19px;
+  line-height: 1.56;
+  font-weight: 600;
+}
+
+.wx-theme-verge-signal h2 {
+  margin: 2.05em 0 .82em;
+  padding-left: 13px;
+  border-left: 5px solid #e6007a;
+  color: #151515;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 850;
+}
+
+.wx-theme-verge-signal h3 {
+  margin: 1.55em 0 .65em;
+  color: #151515;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 780;
+}
+
+.wx-theme-verge-signal p,
+.wx-theme-verge-signal li {
+  color: #151515;
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.wx-theme-verge-signal p {
+  margin: 0 0 1.34em;
+}
+
+.wx-theme-verge-signal strong,
+.wx-theme-verge-signal mark,
+.wx-theme-verge-signal a {
+  background: transparent;
+  color: #e6007a;
+  font-weight: 800;
+}
+
+.wx-theme-verge-signal blockquote,
+.wx-theme-verge-signal .wx-card,
+.wx-theme-verge-signal .wx-callout,
+.wx-theme-verge-signal .wx-note,
+.wx-theme-verge-signal .wx-metric,
+.wx-theme-verge-signal .wx-cta {
+  border: 1px solid #151515;
+  border-radius: 0;
+  background: #fff4fb;
+}
+
+.wx-theme-verge-signal blockquote {
+  padding: 18px 18px 16px;
+  border-left: 5px solid #00c8ff;
+}
+
+.wx-theme-verge-signal .wx-pullquote {
+  color: #151515;
+  font-size: 25px;
+  line-height: 1.3;
+  font-weight: 850;
+}
+
+.wx-theme-verge-signal code {
+  padding: 2px 5px;
+  background: #151515;
+  color: #00c8ff;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-verge-signal pre {
+  padding: 16px;
+  overflow-x: auto;
+  background: #151515;
+  color: #00c8ff;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-verge-signal table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.wx-theme-verge-signal th,
+.wx-theme-verge-signal td {
+  padding: 11px 9px;
+  border-bottom: 1px solid #151515;
+  text-align: left;
+}
+
+.wx-theme-verge-signal img {
+  border-radius: 0;
+}
+
+.wx-theme-verge-signal .wx-caption,
+.wx-theme-verge-signal .wx-meta,
+.wx-theme-verge-signal .wx-footnote {
+  color: #666;
+}
+
+.wx-theme-verge-signal .wx-divider {
+  background: #151515;
+}
+
+/* 12. Figma Creative File */
+.wx-theme-figma-file {
+  padding: 30px 22px 50px;
+  background: #fff;
+  color: #1e1e1e;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.wx-theme-figma-file .wx-kicker,
+.wx-theme-figma-file .wx-section-label {
+  color: #f24e1e;
+}
+
+.wx-theme-figma-file h1 {
+  margin: 0 0 18px;
+  color: #0d0d0d;
+  font-size: 29px;
+  line-height: 1.15;
+  font-weight: 780;
+}
+
+.wx-theme-figma-file .wx-lead {
+  color: #4a4a4a;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.wx-theme-figma-file h2 {
+  margin: 2.05em 0 .82em;
+  color: #0d0d0d;
+  font-size: 21px;
+  line-height: 1.45;
+  font-weight: 760;
+}
+
+.wx-theme-figma-file h2 {
+  padding-left: 12px;
+  border-left: 4px solid #f24e1e;
+}
+
+.wx-theme-figma-file h3 {
+  margin: 1.6em 0 .66em;
+  color: #0d0d0d;
+  font-size: 17px;
+  line-height: 1.54;
+  font-weight: 720;
+}
+
+.wx-theme-figma-file p,
+.wx-theme-figma-file li {
+  color: #1e1e1e;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.wx-theme-figma-file p {
+  margin: 0 0 1.34em;
+}
+
+.wx-theme-figma-file strong,
+.wx-theme-figma-file mark,
+.wx-theme-figma-file a {
+  background: transparent;
+  color: #f24e1e;
+  font-weight: 760;
+}
+
+.wx-theme-figma-file blockquote,
+.wx-theme-figma-file .wx-card,
+.wx-theme-figma-file .wx-callout,
+.wx-theme-figma-file .wx-note,
+.wx-theme-figma-file .wx-metric,
+.wx-theme-figma-file .wx-cta {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #f7f7f5;
+}
+
+.wx-theme-figma-file blockquote {
+  padding: 18px 18px 16px;
+  border-left: 4px solid #f24e1e;
+}
+
+.wx-theme-figma-file .wx-pullquote {
+  color: #0d0d0d;
+  font-size: 24px;
+  line-height: 1.36;
+  font-weight: 780;
+}
+
+.wx-theme-figma-file code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #f7f7f5;
+  color: #f24e1e;
+  font-family: Menlo, Consolas, monospace;
+  font-size: .9em;
+}
+
+.wx-theme-figma-file pre {
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.wx-theme-figma-file table {
+  width: 100%;
+  margin: 26px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wx-theme-figma-file th,
+.wx-theme-figma-file td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: left;
+}
+
+.wx-theme-figma-file img {
+  border-radius: 12px;
+}
+
+.wx-theme-figma-file .wx-caption,
+.wx-theme-figma-file .wx-meta,
+.wx-theme-figma-file .wx-footnote {
+  color: #777;
+}
+
+.wx-theme-figma-file .wx-divider {
+  background: #e6e6e6;
+}

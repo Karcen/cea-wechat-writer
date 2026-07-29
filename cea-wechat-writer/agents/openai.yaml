@@ -1,0 +1,4 @@
+interface:
+  display_name: "CEA 公众号写作"
+  short_description: "生成有来源、提示隐藏并含发表前README的CEA公众号初稿"
+  default_prompt: "使用 $cea-wechat-writer 先确认语言、缩写和图注选项，再生成提示仅用中英文注释、不自动生成固定结尾文字、使用联合传播图片并附发表前README的公众号Markdown初稿。"

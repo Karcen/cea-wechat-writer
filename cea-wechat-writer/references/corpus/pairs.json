@@ -1,0 +1,82 @@
+[
+  {
+    "word_file": "word/AI在商业与金融领域的应用-机遇与挑战01-AI在商业与金融领域的应用-机遇与挑战-96442b70.md",
+    "html_file": "html/文章解读/AI在商业与金融领域的应用-机遇与挑战-a4ecb7b0.md",
+    "word_title": "01.【文章解读】AI在商业与金融领域的应用：机遇与挑战",
+    "html_title": "【文章解读】AI在商业与金融领域的应用：机遇与挑战",
+    "score": 0.3829,
+    "content_coverage": 0.1772,
+    "title_similarity": 1.0,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/绿色债券市场解析-不同贴标方式的动机和影响02-绿色债券市场解析-不同贴标方式的动机和影响-235f13af.md",
+    "html_file": "html/文章解读/绿色债券市场解析-不同贴标方式的动机和影响-b3db849e.md",
+    "word_title": "02.【文章解读】绿色债券市场解析：不同贴标方式的动机和影响",
+    "html_title": "【文章解读】绿色债券市场解析：不同贴标方式的动机和影响",
+    "score": 0.3982,
+    "content_coverage": 0.1976,
+    "title_similarity": 1.0,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/PSM匹配效果不太好-试试随机相似森林-Random-Similarity-Forests-03-f8aff2fd.md",
+    "html_file": "html/学术前沿/PSM匹配效果不太好-试试随机相似森林-0bb246fb.md",
+    "word_title": "03.【学术前沿】PSM匹配效果不太好？试试随机相似森林(Random Similarity Forests)",
+    "html_title": "【学术前沿】PSM匹配效果不太好？试试随机相似森林",
+    "score": 0.2033,
+    "content_coverage": 0.0677,
+    "title_similarity": 0.6102,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/进行碳中和承诺能提升企业价值吗-04-进行碳中和承诺能提升企业价值吗-ef2d87d3.md",
+    "html_file": "html/文章解读/企业进行碳中和承诺能提升自身价值吗-61cfaf14.md",
+    "word_title": "04.【文章解读】进行碳中和承诺能提升企业价值吗？",
+    "html_title": "【文章解读】企业进行碳中和承诺能提升自身价值吗？",
+    "score": 0.3322,
+    "content_coverage": 0.1721,
+    "title_similarity": 0.8125,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/ESG如何创造价值-全要素生产率与研发创新的中介与调节路径06-ESG如何创造价值-全要素生产率-431ce360.md",
+    "html_file": "html/文章解读/ESG如何创造价值-全要素生产率与研发创新的中介与调节路径-35205bc8.md",
+    "word_title": "06.【文章解读】ESG如何创造价值？全要素生产率与研发创新的中介与调节路径",
+    "html_title": "【文章解读】ESG如何创造价值？全要素生产率与研发创新的中介与调节路径",
+    "score": 0.3456,
+    "content_coverage": 0.1274,
+    "title_similarity": 1.0,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/BERT-模型的简介与应用07-BERT-模型的简介与应用-52da43b9.md",
+    "html_file": "html/学术前沿/BERT-大语言模型的简介与应用-1fff5bc6.md",
+    "word_title": "07.【学术前沿】BERT 模型的简介与应用",
+    "html_title": "【学术前沿】BERT 大语言模型的简介与应用",
+    "score": 0.3151,
+    "content_coverage": 0.1238,
+    "title_similarity": 0.8889,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/伊斯兰加密货币能否为可持续金融-减震-基于时-频波动溢出网络的实证解读08-伊斯兰加密货币能否为-11426887.md",
+    "html_file": "html/文章解读/伊斯兰加密货币能否为可持续金融-减震-10c47d6c.md",
+    "word_title": "08.【文章解读】伊斯兰加密货币能否为可持续金融“减震”？——基于时-频波动溢出网络的实证解读",
+    "html_title": "【文章解读】伊斯兰加密货币能否为可持续金融“减震”？",
+    "score": 0.2829,
+    "content_coverage": 0.146,
+    "title_similarity": 0.6939,
+    "status": "candidate_needs_review"
+  },
+  {
+    "word_file": "word/经济政策不确定性与银行稳定性-数字化水平的作用10-经济政策不确定性与银行稳定性-数字化水平的作-357bf6b0.md",
+    "html_file": "html/文章解读/经济政策不确定性与银行稳定性-数字化水平的作用-c810f33c.md",
+    "word_title": "10.【文章解读】经济政策不确定性与银行稳定性-数字化水平的作用",
+    "html_title": "【文章解读】经济政策不确定性与银行稳定性：数字化水平的作用",
+    "score": 0.3278,
+    "content_coverage": 0.1037,
+    "title_similarity": 1.0,
+    "status": "candidate_needs_review"
+  }
+]

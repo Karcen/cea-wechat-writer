@@ -1,0 +1,21 @@
+{
+  "name": "duyi-wechat-css-layer",
+  "version": "0.1.0",
+  "owner": "DUYI",
+  "maintainer": "DUYI",
+  "description": "杜一公众号 CSS 风格库：在微信发布排版流程中增加固定 CSS 审美层，并与 duyi-wechat-paipan 联动生成 WeChat-ready HTML。",
+  "entry": "SKILL.md",
+  "templates": [
+    "templates/styles.md",
+    "templates/theme-index.json",
+    "templates/wechat-premium-themes.css"
+  ],
+  "scripts": [
+    "scripts/render_style_set.sh"
+  ],
+  "integrates_with": [
+    "duyi-wechat",
+    "duyi-wechat-paipan",
+    "duyi-wechat-fabu"
+  ]
+}

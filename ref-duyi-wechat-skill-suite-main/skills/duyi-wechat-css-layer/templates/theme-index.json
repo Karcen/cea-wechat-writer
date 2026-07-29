@@ -1,0 +1,280 @@
+{
+  "package": "wechat-premium-themes",
+  "version": "2026-06-30",
+  "goal": "稳定产出接近顶级产品官网、报刊、杂志审美的公众号排版风格。",
+  "component_contract": [
+    "wx-article",
+    "wx-kicker",
+    "wx-meta",
+    "wx-lead",
+    "wx-section-label",
+    "wx-card",
+    "wx-callout",
+    "wx-note",
+    "wx-pullquote",
+    "wx-grid",
+    "wx-metric",
+    "wx-caption",
+    "wx-divider",
+    "wx-cta",
+    "wx-footnote"
+  ],
+  "themes": [
+    {
+      "id": "apple-gallery",
+      "className": "wx-theme-apple-gallery",
+      "family": "product",
+      "inspiration": "Apple official product pages and Human Interface Guidelines",
+      "bestFor": "品牌感强的主张、产品发布、关键理念、需要显得克制而昂贵的文章。",
+      "formula": "大留白 + 系统蓝 + 高级灰卡片 + 轻阴影少组件 + 20px 级 lead。",
+      "body": "17px / 1.92",
+      "headline": "30px / 1.14",
+      "risk": "不适合信息密度极高、表格很多的教程。"
+    },
+    {
+      "id": "stripe-infra",
+      "className": "wx-theme-stripe-infra",
+      "family": "product-doc",
+      "inspiration": "Stripe developer and infrastructure writing",
+      "bestFor": "产品、增长、商业模型、数据、开发者工具、付费路径分析。",
+      "formula": "冷白底 + 深海军蓝正文 + 靛蓝强调 + 卡片式信息层级 + 中高密度。",
+      "body": "16px / 1.78",
+      "headline": "28px / 1.18",
+      "risk": "不要用于日记、情绪化随笔。"
+    },
+    {
+      "id": "linear-memo",
+      "className": "wx-theme-linear-memo",
+      "family": "product-memo",
+      "inspiration": "Linear precision, issue-tracker craft, focused product memos",
+      "bestFor": "复盘、项目进展、产品判断、团队 memo、结构化短文。",
+      "formula": "浅灰画布 + 紫色窄边线 + 精准标题 + 低装饰卡片。",
+      "body": "16px / 1.76",
+      "headline": "27px / 1.18",
+      "risk": "太文学、太长篇的内容会显得冷。"
+    },
+    {
+      "id": "vercel-minimal",
+      "className": "wx-theme-vercel-minimal",
+      "family": "developer-minimal",
+      "inspiration": "Vercel / Geist-style developer minimalism",
+      "bestFor": "技术短判断、发布说明、工具链文章、极简工程笔记。",
+      "formula": "黑白极简 + 细边框 + 单色强调 + 紧标题层级。",
+      "body": "16px / 1.72",
+      "headline": "28px / 1.15",
+      "risk": "不适合需要情绪温度或强销售转化的文章。"
+    },
+    {
+      "id": "claude-research",
+      "className": "wx-theme-claude-research",
+      "family": "research-note",
+      "inspiration": "Warm AI research notebook, humanist AI product aesthetics",
+      "bestFor": "AI 研究、思考札记、方法论解释、温和但有深度的分析。",
+      "formula": "奶油纸底 + 陶土色强调 + 衬线标题 + 暖色笔记卡。",
+      "body": "16px / 1.88",
+      "headline": "29px / 1.20",
+      "risk": "不适合强冲突、强营销、硬核代码教程。"
+    },
+    {
+      "id": "notion-knowledge",
+      "className": "wx-theme-notion-knowledge",
+      "family": "knowledge-base",
+      "inspiration": "Notion-style knowledge base editorial",
+      "bestFor": "知识库文章、清单、轻教程、内容生产 SOP、资料整理。",
+      "formula": "接近纸白 + 柔灰组件 + 紫色轻强调 + 文档式可读性。",
+      "body": "16px / 1.82",
+      "headline": "28px / 1.20",
+      "risk": "别把所有内容都做成卡片，否则会显得碎。"
+    },
+    {
+      "id": "economist-briefing",
+      "className": "wx-theme-economist-briefing",
+      "family": "editorial",
+      "inspiration": "The Economist briefing and editorial rhythm",
+      "bestFor": "商业判断、趋势分析、行业观点、强论点社论。",
+      "formula": "新闻纸底 + 红色决策点 + 衬线大标题 + 顶线分节。",
+      "body": "16px / 1.90",
+      "headline": "30px / 1.16",
+      "risk": "不适合轻松日常、截图教程和大量步骤说明。"
+    },
+    {
+      "id": "ft-newsprint",
+      "className": "wx-theme-ft-newsprint",
+      "family": "newspaper",
+      "inspiration": "Financial Times newsprint, markets briefing, salmon paper",
+      "bestFor": "商业、金融、宏观判断、严肃案例拆解。",
+      "formula": "浅鲑纸色 + 酒红强调 + 细分隔线 + 报纸式信息权威感。",
+      "body": "16px / 1.88",
+      "headline": "30px / 1.18",
+      "risk": "不适合过度年轻化、强视觉冲击的内容。"
+    },
+    {
+      "id": "nyt-essay",
+      "className": "wx-theme-nyt-essay",
+      "family": "longform-essay",
+      "inspiration": "New York Times Sunday essay and classic serif longform",
+      "bestFor": "深度长文、人物故事、思想随笔、严肃叙事。",
+      "formula": "纯白纸面 + 黑色衬线 + 大标题 + 少组件 + 拉长阅读呼吸。",
+      "body": "17px / 1.86",
+      "headline": "32px / 1.12",
+      "risk": "不适合产品教程和复杂表格。"
+    },
+    {
+      "id": "wired-culture",
+      "className": "wx-theme-wired-culture",
+      "family": "magazine-tech",
+      "inspiration": "WIRED tech culture magazine energy",
+      "bestFor": "科技文化、AI 事件、行业八卦、带锋芒的观点文。",
+      "formula": "黑白强对比 + 荧光绿强调 + 粗标题 + 带阴影硬卡片。",
+      "body": "16px / 1.78",
+      "headline": "31px / 1.08",
+      "risk": "强调要少，不然会显得吵。"
+    },
+    {
+      "id": "verge-signal",
+      "className": "wx-theme-verge-signal",
+      "family": "magazine-tech",
+      "inspiration": "The Verge signal colors and fast tech-news pace",
+      "bestFor": "新品、平台变化、AI 公司动态、带速度感的科技解读。",
+      "formula": "白底黑字 + 洋红/青色信号色 + 左边框标题 + 速度感卡片。",
+      "body": "16px / 1.76",
+      "headline": "30px / 1.12",
+      "risk": "不适合严肃商业报告。"
+    },
+    {
+      "id": "figma-file",
+      "className": "wx-theme-figma-file",
+      "family": "creative-tool",
+      "inspiration": "Figma creative file and design-tool clarity",
+      "bestFor": "设计、视觉、产品原型、案例拆解、创作流程。",
+      "formula": "白底 + Figma 橙红强调 + 圆角文件卡 + 设计稿式层级。",
+      "body": "16px / 1.80",
+      "headline": "29px / 1.15",
+      "risk": "不要用于太严肃的金融/法律/政策内容。"
+    }
+  ],
+  "duyi_imagery_styles": [
+    {
+      "id": "白瓷",
+      "base": "apple-gallery",
+      "group": "main",
+      "bestFor": "品牌主张、产品介绍、高级克制短文。",
+      "formula": "白瓷釉面 + 留白克制 + 微阴影。"
+    },
+    {
+      "id": "蓝图",
+      "base": "stripe-infra",
+      "group": "main",
+      "bestFor": "产品、增长、商业模型、数据、工具说明。",
+      "formula": "工程蓝纸 + 白卡片 + 精密边线。"
+    },
+    {
+      "id": "紫线",
+      "base": "linear-memo",
+      "group": "main",
+      "bestFor": "项目复盘、产品判断、团队 memo。",
+      "formula": "浅灰画布 + 一条紫色判断线。"
+    },
+    {
+      "id": "墨线",
+      "base": "vercel-minimal",
+      "group": "main",
+      "bestFor": "技术短文、发布说明、工程笔记。",
+      "formula": "黑白极简 + 极细墨线。"
+    },
+    {
+      "id": "陶土",
+      "base": "claude-research",
+      "group": "main",
+      "bestFor": "AI 研究、方法论、温和解释。",
+      "formula": "奶油纸底 + 陶土色批注。"
+    },
+    {
+      "id": "宣纸",
+      "base": "notion-knowledge",
+      "group": "main",
+      "bestFor": "SOP、清单、资料整理、轻教程。",
+      "formula": "纸白柔灰 + 淡黄重点。"
+    },
+    {
+      "id": "朱批",
+      "base": "economist-briefing",
+      "group": "main",
+      "bestFor": "商业判断、趋势分析、强观点。",
+      "formula": "新闻纸底 + 红笔顶线批注。"
+    },
+    {
+      "id": "杏纸",
+      "base": "ft-newsprint",
+      "group": "main",
+      "bestFor": "财经、宏观、市场、对标研究。",
+      "formula": "杏色暖纸 + 酒红边线。"
+    },
+    {
+      "id": "素纸",
+      "base": "nyt-essay",
+      "group": "main",
+      "bestFor": "深度长文、人物、思想随笔。",
+      "formula": "素白纸面 + 衬线长文。"
+    },
+    {
+      "id": "萤石",
+      "base": "wired-culture",
+      "group": "main",
+      "bestFor": "科技文化、AI 事件、锋利观点。",
+      "formula": "暗底块 + 荧光绿强调。"
+    },
+    {
+      "id": "霓虹",
+      "base": "verge-signal",
+      "group": "main",
+      "bestFor": "新品、平台动态、科技快讯。",
+      "formula": "暗底块 + 洋红/青信号色。"
+    },
+    {
+      "id": "橙陶",
+      "base": "figma-file",
+      "group": "main",
+      "bestFor": "设计案例、视觉拆解、原型说明。",
+      "formula": "橙红陶土 + 手工圆角卡片。"
+    },
+    {
+      "id": "朱砂",
+      "base": "zhusha-editorial",
+      "group": "main",
+      "bestFor": "实践解释、红色批注感文章。",
+      "formula": "红印泥 + 编辑批注。"
+    },
+    {
+      "id": "金箔",
+      "base": "jinbo-magazine",
+      "group": "main",
+      "bestFor": "个人记录、杂志质感段落。",
+      "formula": "烫金线 + 杂志灰底。"
+    },
+    {
+      "id": "竹简",
+      "base": "zhujian-poetic",
+      "group": "main",
+      "bestFor": "诗歌、短札、金句。",
+      "formula": "窄长竹片 + 左右细线。"
+    },
+    {
+      "id": "青笺",
+      "base": "qingjian-letter",
+      "group": "main",
+      "bestFor": "个人口吻、工具教程、轻口语长文。",
+      "formula": "信件风 + 左对齐黑字正文 + 重点浅绿底。"
+    }
+  ],
+  "selection_formula": {
+    "产品或商业化": "蓝图 / 紫线 / 白瓷",
+    "AI研究或方法论": "陶土 / 宣纸 / 朱批",
+    "商业趋势或观点社论": "朱批 / 杏纸 / 素纸",
+    "技术教程或开发者内容": "墨线 / 蓝图 / 青笺",
+    "科技文化或热点事件": "萤石 / 霓虹",
+    "个人长文或故事": "素纸 / 陶土 / 白瓷",
+    "设计和视觉案例": "橙陶 / 白瓷",
+    "信件或轻口语教程": "青笺 / 竹简"
+  }
+}
