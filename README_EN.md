@@ -4,7 +4,7 @@
 
 > Chinese is the default project-documentation entry only. It does not allow any writing task to skip language confirmation. Generated content must still be confirmed as Chinese, English, strict Chinese-English, or another language.
 
-This directory contains the Chinese Economic Association UK/Europe (CEA) workflow for WeChat writing and research-grade paper analysis, including the installable Codex Skill, historical training material, the reference formatting Skill, brand images, and complete examples.
+This directory contains the Chinese Economic Association UK/Europe (CEA) workflow for WeChat writing and in-depth paper analysis, including the installable Codex Skill, historical training material, the reference formatting Skill, brand images, and complete examples.
 
 The callable Skill is located in [`cea-wechat-writer/`](cea-wechat-writer/).
 
@@ -14,7 +14,7 @@ The callable Skill is located in [`cea-wechat-writer/`](cea-wechat-writer/).
 - [2. Project directories](#2-project-directories)
 - [3. Install or update the Skill](#3-install-or-update-the-skill)
 - [4. Five-minute quick start](#4-five-minute-quick-start)
-- [5. Tutorial 1: two-stage research-grade paper analysis](#5-tutorial-1-two-stage-research-grade-paper-analysis)
+- [5. Tutorial 1: two-stage paper analysis](#5-tutorial-1-two-stage-paper-analysis)
 - [6. Tutorial 2: CEA WeChat Markdown draft](#6-tutorial-2-cea-wechat-markdown-draft)
 - [7. Mandatory CEA writing and layout rules](#7-mandatory-cea-writing-and-layout-rules)
 - [8. Seven categories and five templates](#8-seven-categories-and-five-templates)
@@ -31,9 +31,9 @@ The project supports two separate modes:
 | Mode | Main use | Default result |
 |---|---|---|
 | CEA WeChat writing | Paper interpretation, methods, conferences, news, history, special issues, and recruitment | A local WeChat Markdown draft with source ledger, QA report, pre-publication guide, and images |
-| Research-grade paper analysis | Reading notes, literature-review material, research-design analysis, and theory and evidence evaluation | One research-grade Markdown file at the user-confirmed path |
+| In-depth paper analysis | Reading notes, literature-review material, research-design analysis, and theory and evidence evaluation | One clean reader-facing analysis plus one editor-review record |
 
-If a request says only “paper analysis,” the Skill first asks whether the intended result is a WeChat article or a research-grade reading note. It does not mix both structures by default.
+If a request says only “paper analysis,” the Skill first asks whether the intended result is a WeChat article or a paper-reading note. It does not mix both structures by default.
 
 ### 1.1 WeChat writing mode
 
@@ -46,16 +46,17 @@ WeChat mode emphasises:
 - strict QA and a bilingual pre-publication guide;
 - manual work that still has to be completed in the WeChat editor.
 
-### 1.2 Research-grade paper analysis mode
+### 1.2 Paper-analysis mode
 
 Research-analysis mode emphasises:
 
 - using the PDF, converted Markdown, and figures together;
 - a mandatory Stage 1 alignment followed by Stage 2 analysis;
-- separating author statements, direct evidence, author interpretation, and analyst assessment;
-- research-grade treatment of theory, methods, data, results, figures, contributions, and limitations;
+- internally separating author views, paper evidence, author interpretation, and editorial judgement while using natural attribution in the reader-facing text;
+- selecting the theory, methods, results, figures, contributions, and limitations that matter to the central argument rather than reproducing every section;
 - locating key judgments by Section, Figure, Table, Equation, Appendix, or PDF page;
-- avoiding a shallow summary-only output.
+- normally using only four to six level-two headings for a cohesive, moderate-length analysis;
+- keeping workflow states, judgement mapping, and unresolved items in a separate editor-review record.
 
 ## 2. Project directories
 
@@ -82,8 +83,9 @@ Important entry points:
 - [Skill execution rules](cea-wechat-writer/SKILL.md)
 - [Full Chinese Skill tutorial](cea-wechat-writer/README.md)
 - [Full English Skill tutorial](cea-wechat-writer/README_EN.md)
-- [Research-grade paper-analysis workflow](cea-wechat-writer/references/research-paper-analysis-workflow.md)
-- [Research-grade paper-analysis launch Prompt](cea-wechat-writer/assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md)
+- [Paper-analysis workflow](cea-wechat-writer/references/research-paper-analysis-workflow.md)
+- [Paper-analysis launch Prompt](cea-wechat-writer/assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md)
+- [Natural writing and clean-copy rules](cea-wechat-writer/references/natural-writing-and-clean-copy.md)
 - [Seven WeChat examples](cea-wechat-writer/sample/)
 
 Working folders such as `CEA_Work_Test/` are not part of the installable Skill and should not be copied into the Codex skills directory.
@@ -140,11 +142,11 @@ If it does not trigger automatically, also provide the absolute path to `SKILL.m
 
 ## 4. Five-minute quick start
 
-### 4.1 Start research-grade paper analysis
+### 4.1 Start paper analysis
 
 ```text
-Use $cea-wechat-writer to start the two-stage research-grade paper analysis workflow.
-For now, collect inputs and perform Stage 1 only. Do not begin the full paper analysis or create the final Markdown.
+Use $cea-wechat-writer to start the two-stage paper analysis workflow.
+For now, collect inputs and perform Stage 1 only. Do not begin the full paper analysis or create the final output files.
 Ask me for the absolute paths to the Skill, paper PDF, paper Markdown, and paper figures, and ask where to save the result.
 I may reply "default" for the save location. Begin Stage 2 only after I explicitly authorise it.
 ```
@@ -157,7 +159,7 @@ First confirm the language, category, review mode, acronyms, fixed ending, and t
 Create only local Markdown and supporting files. Do not upload, create a WeChat platform draft, or publish.
 ```
 
-## 5. Tutorial 1: two-stage research-grade paper analysis
+## 5. Tutorial 1: two-stage paper analysis
 
 ### Step 0: prepare four paths
 
@@ -197,7 +199,7 @@ If the Skill is already specified, Codex may echo its path and ask for confirmat
 When the user replies `default`:
 
 - the save directory is the directory containing the resolved `SKILL.md`;
-- the default filename is `<paper PDF stem>_研究级论文解读.md`;
+- the default files are `<paper PDF stem>_论文解读.md` and `<paper PDF stem>_编辑核查记录.md`;
 - Stage 1 creates no result file;
 - an existing file must trigger a rename or overwrite question and must never be overwritten silently.
 
@@ -205,32 +207,32 @@ If the user supplies `<repo-root>` as the Skill directory, the workflow should s
 
 ### Step 4: review Stage 1
 
-Stage 1 reads `SKILL.md` and all required references, templates, scripts, and assets, then checks the PDF, Markdown, figures, and output path. Its response contains only:
+Stage 1 reads `SKILL.md` and all required references, templates, scripts, and assets, then checks the PDF, Markdown, figures, and both output paths. Its response contains only:
 
 #### A. Task understanding
 
-The intended deliverable, the role of each paper source, the core constraints, and the proposed output path.
+The two intended deliverables, the role of each paper source, the core constraints, and the proposed output paths.
 
 #### B. Proposed Markdown structure
 
-Level-one and level-two headings adapted to the paper's actual design. A non-causal paper must not be forced into a DID or RCT structure.
+A small number of broad sections adapted to the paper's actual design, normally four to six level-two headings. A non-causal paper must not be forced into a DID or RCT structure.
 
 #### C. Decisions requiring confirmation
 
 The default proposal is:
 
-- full research-grade analysis;
+- complete but focused analysis at a moderate length, without section-by-section retelling;
 - Chinese-first writing with English retained at the first appearance of a technical term;
 - balanced coverage of the question, theory, method, evidence, contribution, and limitations;
 - no external literature expansion by default;
-- figure-by-figure analysis of core visuals;
-- analyst assessments marked separately.
+- close analysis only of core visuals that support the main argument;
+- natural attribution in the body, with detailed evidence and judgement mapping in the editor-review record.
 
 The language must still be confirmed as Chinese, English, Chinese-English, or Other. For Chinese-English, confirm every acronym's English expansion, Chinese rendering, and first and subsequent display rules before drafting. For `Other`, confirm the exact language, regional variant or writing system, and whether it is monolingual or paired with Chinese.
 
 #### D. File-check results
 
-The read status, format issues, source alignment, output conflicts, and blockers for the Skill, PDF, Markdown, figures, and output path.
+The read status, format issues, source alignment, output conflicts, and blockers for the Skill, PDF, Markdown, figures, and both output paths.
 
 Stage 1 then stops. The following do not authorise Stage 2:
 
@@ -251,7 +253,7 @@ Custom example:
 
 ```text
 Use strict Chinese-English. Focus on the theoretical mechanisms, identification strategy, and research-design limitations.
-Analyse every core figure but do not embed images in the Markdown.
+Analyse only figures that affect the central conclusion, but do not embed images in the Markdown.
 Start Stage 2 after the acronym confirmation is complete.
 ```
 
@@ -265,12 +267,13 @@ The final document should:
 - explain each core figure's axes, result, intended claim, link to the research question, anomalies, and limitations;
 - report direction, magnitude, uncertainty, and practical meaning rather than only “significance”;
 - locate material judgments in the original paper;
-- mark unresolved matters as “cannot be confirmed from the paper”;
-- distinguish author views from analyst assessment.
+- explain unresolved matters naturally when they affect understanding and record the detailed status in the editor-review file;
+- distinguish author views, paper evidence, and editorial judgement through concrete subjects;
+- contain no workflow labels, review states, Prompt/Skill commentary, or overly fragmented template headings.
 
-A Chinese analysis of a standard empirical or theoretical paper will usually require approximately 5,000–10,000 Chinese characters. Other languages must provide equivalent research depth rather than mechanically following a Chinese-character count.
+A Chinese analysis will normally use about 3,000–5,000 Chinese characters. Even a complex paper should usually stay within about 6,000 characters unless the user approves a longer treatment. Other languages should preserve the same information density rather than mechanically converting the character count.
 
-The delivery message should identify the complete output path, source files used, unresolved or unparseable material, Skill-check status, and how any Prompt–Skill conflict was handled.
+The delivery message should identify the complete paths of the reader-facing analysis and editor-review record, source files used, unresolved or unparseable material, Skill-check status, and how any Prompt–Skill conflict was handled.
 
 ## 6. Tutorial 2: CEA WeChat Markdown draft
 
@@ -381,6 +384,15 @@ Every author or editor instruction must be a bilingual HTML comment and must not
 <!-- 请在公众号编辑器内补入固定结尾 / Add the fixed ending in the WeChat editor -->
 ```
 
+### 7.4 Natural final copy
+
+- Reader-facing text does not expose workflow labels, review states, Prompt/Skill commentary, or explanations of the writing process.
+- Author views, paper evidence, and editorial judgement are attributed through concrete subjects rather than mechanical labels such as “analyst assessment.”
+- Headings appear only when the topic genuinely changes; one-paragraph sections, stacked lists, excessive bold, and repeated summaries are merged or removed.
+- Review states, source mapping, conflicts, and unresolved items belong in the supporting review files.
+
+See [`natural-writing-and-clean-copy.md`](cea-wechat-writer/references/natural-writing-and-clean-copy.md) for the complete rules.
+
 ## 8. Seven categories and five templates
 
 | Category | Default template | Core content |
@@ -488,7 +500,7 @@ Standard WeChat-mode output contains:
 - `README_BEFORE_PUBLISHING.md`: bilingual pre-publication guide;
 - `assets/`: local images actually used.
 
-Research-grade paper analysis normally produces one Markdown file at the user-confirmed path.
+Paper-analysis mode normally produces two Markdown files: a clean reader-facing analysis and a separate record for author and editor review.
 
 Neither mode uploads or publishes automatically. In the WeChat editor, the editor must still:
 

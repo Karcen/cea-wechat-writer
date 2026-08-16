@@ -1,7 +1,6 @@
 <!-- category: 学会历史 -->
 <!-- language: {{LANGUAGE}} -->
 <!-- template: history-profile -->
-<!-- review-status: DRAFT -->
 
 # {{历史或人物标题}}
 

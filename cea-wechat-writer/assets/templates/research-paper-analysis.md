@@ -1,118 +1,40 @@
-<!-- mode: research-paper-analysis -->
-<!-- language: 中文为主 专业术语首次出现时保留英文 / Chinese-first with English terms at first mention -->
-<!-- review-status: DRAFT -->
+# {{论文题名或自然化标题}}
 
-# {{论文题名}}：研究级解读
+**作者** {{Authors}}
+**出处** {{Journal or source and year}}
 
-<!-- 写入前删除所有占位符和不适用章节 / Remove all placeholders and inapplicable sections before delivery -->
+{{用两到三段自然开篇直接说明论文在问什么 为什么值得读 以及最重要的发现 不写阅读地图 不写下文结构说明}}
 
-## 论文信息与阅读地图
+## {{围绕论文问题拟定自然标题}}
 
-- **英文题名：** {{English title}}
-- **作者：** {{Authors}}
-- **期刊或出处：** {{Journal or source}}
-- **年份：** {{Year}}
-- **研究类型：** {{Research design}}
-- **一句话研究问题：** {{Research question}}
-- **一句话核心发现：** {{Finding with evidence boundary}}
+{{把研究动机 文献缺口和作者的核心思路连起来说明 不把三者拆成机械小节 必要定位写在句末例如 Section 1}}
 
-### 最短阅读路径
+## {{围绕作者如何回答问题拟定自然标题}}
 
-<!-- 用少量段落说明问题 方法 证据 结论与最大边界并提供原文定位 / Explain question method evidence finding and main boundary with source locators -->
+{{根据论文类型整合理论 数据 方法与关键假设 只解释理解结论所需的技术细节 非因果研究不套用因果识别语言}}
 
-## 研究问题 动机与文献缺口
+{{公式只有在它承担核心论证时才保留 使用 Markdown 或 LaTeX 并在上下文中解释变量 参数和直觉}}
 
-### 研究问题
+## {{围绕最重要发现拟定自然标题}}
 
-### 为什么值得研究
+{{按论文论证顺序选择三到五项真正改变结论的结果 把方向 大小 不确定性 稳健性和异质性融入连续叙述 不罗列全部检验}}
 
-### 已有文献没有解决什么
+{{在相关结果附近解释必要图表 不另建图表清单 用户确认嵌入和图注后才加入图片}}
 
-## 核心论证链
+<!-- 可选图片结构 最终删除本注释 / Optional image structure remove this comment before delivery
+![描述性替代文本](figures/{{文件名}})
 
-<!-- 以问题到机制到设计到证据到结论的顺序重建全文 / Reconstruct the paper from question to mechanism design evidence and conclusion -->
+_图{{原论文编号}} {{经用户确认且不含任何标点的图注}}_
+-->
 
-## 理论 机制与假设
+## {{围绕结果含义与证据边界拟定自然标题}}
 
-### 理论直觉
+{{把作者解释 论文实际支持的贡献 仍存在的替代解释和最重要局限连贯写在一起 用作者提出 表格显示 从这一设计看等自然主语区分归属 不显示工作流标签}}
 
-### 机制路径
+{{如果作者的命题与图表或正文不一致 直接用自然句说明两处内容以及更谨慎的读法 详细判断主体和处理记录放入编辑核查文件}}
 
-### 假设或可检验预测
+## {{可选的简短结语或原文定位标题}}
 
-<!-- 非理论或无明确假设的论文应调整或删除本节 / Adapt or remove when the paper has no theory or explicit hypotheses -->
+{{只在确有必要时保留 用一到两段收束真正贡献与后续可追问的问题 或用简短列表给出关键 Section Figure Table Equation 和 Appendix 定位}}
 
-## 数据 研究设计与方法
-
-### 数据来源 样本与观察单位
-
-### 核心变量或构念
-
-### 方法与识别逻辑
-
-### 关键假设与主要威胁
-
-<!-- 非因果研究不得强行使用处理组 对照组或因果识别语言 / Do not force treatment control or causal language onto noncausal studies -->
-
-## 主要结果
-
-### 核心结果的方向 大小与不确定性
-
-### 稳健性与替代解释
-
-### 异质性
-
-### 机制证据
-
-<!-- 只保留论文实际包含的结果类型 / Retain only result types actually present in the paper -->
-
-## 图表 表格与公式深入解读
-
-### Figure {{原论文编号}}
-
-<!-- 解释坐标或元素 结果 作者论点 与研究问题的关系 异常与限制并给出定位 / Explain axes or elements result author claim link to the research question anomalies and limitations with locator -->
-
-### Table {{原论文编号}}
-
-<!-- 解释列行 模型变化 数值含义 可比性和表注 / Explain rows columns specification changes magnitudes comparability and notes -->
-
-### Equation {{原论文编号}}
-
-<!-- 解释用途 变量 参数 关注对象和论证作用 / Explain purpose variables parameters parameter of interest and role in the argument -->
-
-## 这篇论文真正新增了什么
-
-### 作者宣称的贡献
-
-### 证据支持的实际贡献
-
-### 未被证据充分支持的延伸
-
-## 局限与证据边界
-
-### 作者明确承认的局限
-
-### 分析者评价
-
-<!-- 分析者评价必须说明依据且不得冒充作者观点 / Analyst assessments must state their basis and must not be presented as author views -->
-
-## 理论 实践与后续研究启示
-
-### 理论含义
-
-### 实践或政策含义
-
-### 可用于后续研究的问题
-
-## 关键术语
-
-| 中文解释 | English term | 本文中的具体含义 |
-|---|---|---|
-| {{术语}} | {{Term}} | {{Meaning in this paper}} |
-
-## 证据定位索引
-
-| 关键判断 | 证据性质 | 原文定位 | 核验状态 |
-|---|---|---|---|
-| {{判断}} | {{作者陈述 直接证据 作者解释 分析者评价}} | {{Section Figure Table Equation Appendix PDF page}} | {{已核验 论文中无法确认}} |
-
+<!-- 交付前删除所有占位符 不适用章节和模板说明 / Remove all placeholders inapplicable sections and template instructions before delivery -->

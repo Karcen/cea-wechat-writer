@@ -1,4 +1,4 @@
 interface:
   display_name: "CEA 公众号与论文解读"
-  short_description: "生成有来源的CEA公众号初稿与两阶段研究级论文解读"
-  default_prompt: "使用 $cea-wechat-writer 启动两阶段研究级论文解读：先询问 Skill、PDF、Markdown 和 figures 四个绝对路径及结果保存位置（默认与 Skill 目录一致），缺少 Markdown 时提示 MarkItDown Online；本轮只执行阶段 1 并等待我的明确确认。"
+  short_description: "生成有来源的CEA公众号初稿与自然连贯的论文解读"
+  default_prompt: "使用 $cea-wechat-writer 启动两阶段论文解读：先询问 Skill、PDF、Markdown 和 figures 四个绝对路径及结果保存位置（默认与 Skill 目录一致），缺少 Markdown 时提示 MarkItDown Online；本轮只执行阶段 1 并等待我的明确授权。最终生成干净的论文解读正文与单独的编辑核查记录。"

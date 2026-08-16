@@ -1,7 +1,6 @@
 <!-- category: {{会议通知/特刊推荐/广纳英才}} -->
 <!-- language: {{LANGUAGE}} -->
 <!-- template: notice-opportunity -->
-<!-- review-status: DRAFT -->
 
 # {{准确、包含关键行动的标题}}
 

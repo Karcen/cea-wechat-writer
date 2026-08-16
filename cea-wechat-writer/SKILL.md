@@ -1,11 +1,11 @@
 ---
 name: cea-wechat-writer
-description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版公众号 Markdown 初稿，也支持基于论文 PDF、对应 Markdown 和 figures 目录开展两阶段研究级论文解读。用于生成七类 CEA 公众号稿件，或制作可作为阅读笔记、文献综述素材和后续研究参考的深度 Markdown；自动建立证据映射、解释理论与方法、核对图表公式、区分作者结论与分析者评价，并执行科学语言与质量检查。只生成本地文件，不创建公众号草稿或正式发布。
+description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版公众号 Markdown 初稿，也支持基于论文 PDF、对应 Markdown 和 figures 目录开展两阶段论文深度解读。用于生成七类 CEA 公众号稿件，或制作可作为阅读笔记、文献综述素材和后续研究参考的 Markdown；自动建立证据映射、解释理论与方法、核对图表公式、区分作者观点与编辑判断，并执行自然表达、科学语言与质量检查。只生成本地文件，不创建公众号草稿或正式发布。
 ---
 
-# CEA 公众号写作与研究级论文解读
+# CEA 公众号写作与论文解读
 
-把原始材料转换为可审阅的 CEA 公众号 Markdown 初稿，或转换为研究级论文解读笔记。将 CEA 历史语料用于结构、语气和排版示范，不把旧文章中的时间敏感事实当作当前事实。
+把原始材料转换为可审阅的 CEA 公众号 Markdown 初稿，或转换为重点清楚、连贯自然的论文解读。将 CEA 历史语料用于结构、语气和排版示范，不把旧文章中的时间敏感事实当作当前事实。
 
 执行命令前，先把包含本 `SKILL.md` 的目录解析为 skill 根目录；下文的 `scripts/`、`references/` 和 `assets/` 都相对于该目录。
 
@@ -14,18 +14,28 @@ description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版
 先根据用户要求选择一种模式，不得混用交付边界：
 
 - **公众号写作模式**：用户要求公众号推文、七类栏目、微信排版、`article.md`、来源台账或发布前检查时，执行下文“公众号写作模式”流程。
-- **研究级论文解读模式**：用户要求系统解读论文、研究级阅读笔记、文献综述素材，或同时提供论文 PDF、Markdown 和 figures 时，必须完整读取 `references/research-paper-analysis-workflow.md`，并使用 `assets/templates/research-paper-analysis.md` 作为可调整的结构基线。
-- 用户只说“论文解读”且交付用途不明确时，询问要“公众号文章”还是“研究级阅读笔记”。不得同时生成两种成品，除非用户明确要求。
+- **论文解读模式**：用户要求系统解读论文、深度阅读笔记、文献综述素材，或同时提供论文 PDF、Markdown 和 figures 时，必须完整读取 `references/research-paper-analysis-workflow.md`，并使用 `assets/templates/research-paper-analysis.md` 作为可调整的结构基线。
+- 用户只说“论文解读”且交付用途不明确时，询问要“公众号文章”还是“论文阅读笔记”。不得同时生成两种成品，除非用户明确要求。
 
-研究级论文解读必须遵守两阶段闸门：
+论文解读必须遵守两阶段闸门：
 
 1. 启动时一次性询问四个绝对路径：Skill 目录、论文 PDF、论文 Markdown、论文 figures 目录。若当前 Skill 路径已由用户明确提供，可以回显并请用户确认，不要求重复粘贴。
-2. 另行询问结果保存位置。用户可以给出自定义绝对路径，也可以回复“默认”；默认保存目录是**实际解析到的 `SKILL.md` 所在目录**，默认文件名为 `<论文PDF文件名去除扩展名>_研究级论文解读.md`。用户确认保存位置前不得写文件；已有同名文件时不得覆盖，必须先询问。
+2. 另行询问结果保存位置。用户可以给出自定义绝对路径，也可以回复“默认”；默认保存目录是**实际解析到的 `SKILL.md` 所在目录**。默认生成 `<论文PDF文件名去除扩展名>_论文解读.md` 和 `<论文PDF文件名去除扩展名>_编辑核查记录.md`。用户确认保存位置前不得写文件；已有同名文件时不得覆盖，必须先询问。
 3. 询问 Markdown 路径时同时提示：若尚未生成，可在 [MarkItDown Online](https://markitdown.online/) 将 PDF 转换为 Markdown，下载到本地后再提供绝对路径；对未公开、受版权或保密限制的论文，上传第三方网站前先确认授权。不得替用户静默上传。
 4. 收齐输入后只执行阶段 1：读取规则、检查文件、提出结构、列出真正需要确认的事项，然后停止。用户仅提供路径、回复“收到”或补充资料，不等于授权阶段 2。
 5. 只有用户明确回复“开始阶段 2”“可以开始”或同等授权，并确认阶段 1 的必要选择后，才能进行完整分析和保存最终 Markdown。
 
 可复制的中英文启动提示词见 `assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md`。
+
+## 所有模式的成稿原则
+
+写正文前完整读取 `references/natural-writing-and-clean-copy.md`。
+
+- 最终读者正文必须像经过人工编辑的成稿，科学、自然、连贯，可以直接阅读或排版。
+- 正文不得显示工作流标签、审核状态或自我说明，不得把“研究级解读”“已确认”“作者陈述”“证据直接支持”“分析者评价”“核验状态”或 `PASS`、`BLOCK`、`NEEDS_REVIEW`、`USER_CONFIRMED` 等写成标题、标签或段首提示。
+- 判断主体和证据边界仍须严格区分，但应使用“作者提出”“表 2 显示”“从这一设计看”等自然主语和证据动词。不得因删除标签而掩盖不确定性或把编辑判断冒充作者原意。
+- 公众号模式把审核与交互信息写入 `sources.md`、`qa-report.md` 和 `README_BEFORE_PUBLISHING.md`；论文解读模式写入单独的编辑核查记录。正文只保留必要的隐藏技术注释，不承载长篇编辑说明。
+- 禁止在成稿中解释自己为什么遵守 Prompt 或 Skill，也不要复述规则来源。用户询问工作过程时另行回答，不写进正文。
 
 ## 公众号写作模式
 
@@ -113,7 +123,7 @@ python3 scripts/retrieve_examples.py \
 
 #### 5. 撰写与排版
 
-- 写作前必须读取 `references/editorial-depth-and-footer.md`。默认生成完整长文，不得把公众号成稿写成数百字摘要；只有用户明确同意时才使用短讯模式。
+- 写作前必须读取 `references/editorial-depth-and-footer.md` 和 `references/natural-writing-and-clean-copy.md`。默认生成内容完整但表达克制的长文，不得把公众号成稿写成数百字摘要，也不得靠重复、空泛展望或过度分节凑篇幅；只有用户明确同意时才使用短讯模式。
 - 使用科学、准确、通顺的语言；消除错别字、语病、歧义和无意义的口号。
 - 中文稿默认中文化表达；专业术语首次出现时用“中文（English）”，后文按用户确认规则处理。
 - 中英文稿必须采用严格平行双语：标题、各级标题、正文段落、列表/表格标签、图注、行动提示、免责声明和脚注均须有事实、顺序和强调一致的中文与英文对应内容；不得以英文摘要替代全文英文。
@@ -121,6 +131,7 @@ python3 scripts/retrieve_examples.py \
 - 保留必要的英文题名、模型名、期刊名和专有名词，不机械翻译。
 - 标题可以有传播力，但不得改变研究边界或制造确定性。
 - 使用短段落、清晰标题、有限重点、图片和图注；不堆叠 emoji 或装饰组件。
+- 合并语义相邻的小节，避免连续的一段式小标题、标签加冒号列表、机械排比和重复总结。段落之间按事实与论证自然过渡。
 - 按 `references/image-policy.md` 提取、筛选、保存并放置图片。
 - 添加图表前集中向用户确认每一项是否显示图注。确认结果分别记录为 `user-confirmed-add` 或 `user-confirmed-omit`；用户要求修改时，先确认最终文字再记录为添加。未确认的 `NEEDS_REVIEW` 不得进入成稿。
 - 图和表的可见图注不使用任何标点，包括句末标点、冒号、顿号、逗号、括号和连接号；通过自然语序、空格或“与”“及”等连接词表达。
@@ -184,10 +195,12 @@ python3 scripts/qa_markdown.py \
 - 正文深度、最低篇幅与固定结尾：`references/editorial-depth-and-footer.md`
 - 历史语料使用方法：`references/corpus-guide.md`
 - Skill 与未来模型微调路线：`references/training-strategy.md`
-- 两阶段研究级论文解读：`references/research-paper-analysis-workflow.md`
+- 自然写作与干净正文：`references/natural-writing-and-clean-copy.md`
+- 两阶段论文解读：`references/research-paper-analysis-workflow.md`
 - Markdown 模板：`assets/templates/`
-- 研究级论文解读结构：`assets/templates/research-paper-analysis.md`
-- 研究级论文解读启动提示词：`assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md`
+- 论文解读正文结构：`assets/templates/research-paper-analysis.md`
+- 论文解读编辑核查结构：`assets/templates/research-paper-analysis-editor-review.md`
+- 论文解读启动提示词：`assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md`
 - CEA 联合传播标准色版：`assets/brand/扫码_搜索联合传播样式-标准色版.png`
 - 七个完整栏目样例：`sample/`
 - 中文使用说明与完整教程：`README.md`

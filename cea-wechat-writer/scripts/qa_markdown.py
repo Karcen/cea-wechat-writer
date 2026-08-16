@@ -57,8 +57,11 @@ FOOTER_MARKERS = (
 )
 VISIBLE_EDITORIAL_PROMPT_RE = re.compile(
     r"发布前(?:提醒|二次检查|必须)|时效警告|编辑提示|Editor(?:'s)? note|"
-    r"待办|待确认|NEEDS_REVIEW|请核对|请确认",
-    re.IGNORECASE,
+    r"待办|待确认|请核对|请确认|研究级(?:论文)?解读|作者陈述|证据直接支持|"
+    r"分析者评价|核验状态|已确认(?:事项|状态|选择)|"
+    r"NEEDS_REVIEW|USER_CONFIRMED|USER_OVERRIDE|READY_FOR_AUTHOR_REVIEW|"
+    r"BLOCKED_NEEDS_REVIEW|USER_OVERRIDDEN_REVIEW_REQUIRED|user-confirmed-(?:add|omit)",
+    re.IGNORECASE | re.MULTILINE,
 )
 PROMPT_COMMENT_RE = re.compile(
     r"编辑提示|Editor(?:'s)? note|发布前|Before publication|提醒|警告|"
@@ -121,6 +124,8 @@ def render_report(article: Path, sources: Path, issues: list[dict], override: st
         "- [ ] Markdown未自动生成往期文章、CEA/JCEBS介绍或关注提示",
         "- [ ] 已保留中英文注释，提示从已发布往期文章复制完整固定结尾",
         "- [ ] 所有作者或编辑提示只存在于中英文 HTML 注释中",
+        "- [ ] 正文没有工作流标签、审核状态或解释 Prompt/Skill 的自我说明",
+        "- [ ] 已合并一段式小节并删除重复总结、机械排比和模板化表达",
         "- [ ] 已生成并阅读中英文 README_BEFORE_PUBLISHING.md",
         "- [ ] 图片可见图注不显示来源；隐藏来源批注和图片台账完整",
         "- [ ] 图和表的可见图注完全不含标点",
@@ -280,7 +285,7 @@ def main() -> int:
         excerpt_start = max(0, visible_prompt.start() - 50)
         excerpt_end = min(len(visible_article), visible_prompt.end() + 90)
         excerpt = re.sub(r"\s+", " ", visible_article[excerpt_start:excerpt_end]).strip()
-        add_issue(issues, "BLOCK", "提示性话语可见", f"作者或编辑提示必须移入中英文 HTML 注释：{excerpt}")
+        add_issue(issues, "BLOCK", "工作流话语可见", f"作者或编辑提示及工作流状态必须移入配套审校文件或中英文 HTML 注释：{excerpt}")
 
     for comment in re.findall(r"<!--(.*?)-->", article, flags=re.DOTALL):
         if not PROMPT_COMMENT_RE.search(comment):

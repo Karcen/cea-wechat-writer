@@ -27,6 +27,10 @@ This file is for the author and WeChat editor before publication. It is not part
       The selected Chinese English bilingual or other-language mode matches the user request
 - [ ] 中英文稿逐段严格对应，缩写已由用户确认  
       A bilingual draft is strictly parallel paragraph by paragraph and all abbreviations are user-confirmed
+- [ ] 正文读起来像人工编辑后的成稿，没有工作流标签、审核状态、Prompt/Skill 说明、过度分节或重复总结  
+      The body reads like human-edited final copy without workflow labels review states Prompt or Skill commentary excessive sectioning or repeated summaries
+- [ ] 作者观点、论文证据和编辑判断通过自然主语区分，详细核查信息只保留在配套文件  
+      Author views paper evidence and editorial judgement are distinguished through natural attribution while detailed review information remains in supporting files
 
 ## 正文注释检查 / Article Comment Check
 

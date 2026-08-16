@@ -1,7 +1,6 @@
 <!-- category: 新近动态 -->
 <!-- language: {{LANGUAGE}} -->
 <!-- template: association-news -->
-<!-- review-status: DRAFT -->
 
 # {{新闻标题}}
 

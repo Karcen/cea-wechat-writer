@@ -28,6 +28,8 @@
 | BLOCK | Markdown未自动生成固定结尾文字 | NEEDS_REVIEW | 从已发布往期文章复制 |
 | BLOCK | 固定结尾复制提示完整 | NEEDS_REVIEW | 中英文HTML注释 |
 | BLOCK | 提示只存在于中英文HTML注释 | NEEDS_REVIEW | 不得显示为正文 |
+| BLOCK | 正文没有工作流标签或审核状态 | NEEDS_REVIEW | 相关信息写入本报告、sources.md或发表前README |
+| WARN | 行文自然连贯且不过度分节 | NEEDS_REVIEW | 合并一段式小节并删除重复总结和模板化表达 |
 | BLOCK | 中英文发表前README已生成 | NEEDS_REVIEW | README_BEFORE_PUBLISHING.md |
 
 ## 用户强制通过记录

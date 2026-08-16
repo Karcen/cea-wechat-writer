@@ -1,7 +1,6 @@
 <!-- category: 学术前沿 -->
 <!-- language: {{LANGUAGE}} -->
 <!-- template: frontier-tutorial -->
-<!-- review-status: DRAFT -->
 
 # {{方法或工具标题}}
 
