@@ -1,390 +1,549 @@
-# CEA WeChat Writer / CEA 公众号写作 Skill
+# CEA_Skill 项目说明与使用教程
 
-## 中文说明
+**文档语言：中文（默认）｜[English documentation](README_EN.md)**
 
-### 1. 这是什么
+> “默认中文”只表示项目首页默认显示中文。生成内容的语言仍必须在每次任务中确认，可选择中文、英文、严格中英文或其他语言。
 
-`cea-wechat-writer` 是为全英/全欧中国经济学会（CEA UK/Europe）设计的公众号写作、事实核查与 Markdown 排版 Skill。它把论文、Word 稿、网页、会议材料、招聘信息或用户笔记整理成可审阅的公众号初稿，同时保存来源记录、图片资产和质量检查结果。
+本目录保存全英／全欧中国经济学会（Chinese Economic Association UK/Europe，CEA）的公众号写作与研究级论文解读工作流，包括可安装的 Codex Skill、历史训练语料、参考排版 Skill、品牌图片和完整样例。
 
-它只生成本地文件，不登录公众号、不创建草稿箱，也不发布内容。
+实际可调用的 Skill 位于 [`cea-wechat-writer/`](cea-wechat-writer/)。
 
-每次标准交付包含：
+## 目录
 
-- `article.md`：完成排版的 Markdown 初稿；
-- `sources.md`：来源、事实与图片权利台账；
-- `qa-report.md`：自动检查结果和人工复核提醒；
-- `README_BEFORE_PUBLISHING.md`：中英文发表前阅读与修改清单；
-- `assets/`：正文实际使用的本地图片。
+- [1. 项目能做什么](#1-项目能做什么)
+- [2. 项目目录说明](#2-项目目录说明)
+- [3. 安装或更新 Skill](#3-安装或更新-skill)
+- [4. 五分钟快速开始](#4-五分钟快速开始)
+- [5. 教程一：两阶段研究级论文解读](#5-教程一两阶段研究级论文解读)
+- [6. 教程二：CEA 公众号 Markdown 初稿](#6-教程二cea-公众号-markdown-初稿)
+- [7. CEA 写作与排版硬规则](#7-cea-写作与排版硬规则)
+- [8. 七个栏目与五套模板](#8-七个栏目与五套模板)
+- [9. 训练数据与历史语料](#9-训练数据与历史语料)
+- [10. 脚本、样例与验证](#10-脚本样例与验证)
+- [11. 输出文件与发布边界](#11-输出文件与发布边界)
+- [12. 常见问题](#12-常见问题)
+- [13. 来源与权利说明](#13-来源与权利说明)
 
-### 2. 为什么先做 Skill，而不是立即微调模型
+## 1. 项目能做什么
 
-当前语料规模适合提炼规则、模板和少样本示例，但还不足以单独训练一个可靠的基础模型。Skill 可以立即使用云端大模型，并把品牌规范、证据约束、图片策略、栏目模板和质量闸门固化在同一流程中。等积累足够多经作者确认的“生成稿—修改稿—终稿”后，再考虑监督微调或偏好优化。
+项目支持两种独立模式：
 
-建议路线是：
-
-1. 先用本 Skill 生成初稿；
-2. 由作者修改并记录修改理由；
-3. 经用户明确同意后归档训练对；
-4. 建立固定测试集，比较事实准确性、语言质量、栏目匹配和排版稳定性；
-5. 数据量和一致性足够后，再决定是否微调模型。
-
-### 3. 支持的七个栏目与五套模板
-
-| 栏目 | 默认模板 | 主要用途 |
+| 模式 | 主要用途 | 默认结果 |
 |---|---|---|
-| 文章解读 | 研究解读 | 解释论文问题、方法、结果、机制与边界 |
-| 学术前沿 | 方法前沿 | 介绍方法、模型、文献脉络与应用限制 |
-| 会议通知 | 通知机会 | 提供时间、地点、议程、报名或投稿信息 |
-| 新近动态 | 新闻回顾 | 报道活动、人物、组织进展与后续意义 |
-| 学会历史 | 历史人物 | 整理人物回忆、学会沿革与档案材料 |
-| 特刊推荐 | 通知机会 | 介绍特刊主题、范围、编辑、期限与投稿要求 |
-| 广纳英才 / 人才招聘 | 通知机会 | 介绍岗位、方向、资格、材料与联系方式 |
+| CEA 公众号写作 | 论文解读、方法介绍、会议、新闻、历史、特刊、招聘 | 本地公众号 Markdown 初稿及配套来源、QA、发表前说明和图片 |
+| 研究级论文解读 | 阅读笔记、文献综述素材、理论与方法拆解、证据评价 | 用户确认路径中的一份研究级 Markdown |
 
-五套稳定模板为：研究解读、方法前沿、通知机会、新闻回顾、历史人物。栏目与模板的详细映射见 `references/category-and-template-guide.md`。
+如果请求只写“论文解读”，Skill 会先询问需要“公众号文章”还是“研究级阅读笔记”，不会默认混合两种结构。
 
-### 4. 使用前必须确认的事项
+### 1.1 公众号写作模式
 
-Skill 在写正文前必须确认：
+公众号模式强调：
 
-1. 写作语言：中文、英文、中英文或其他；选择其他时还要确认具体语言/变体及单双语方式；
-2. 栏目：由用户指定，或由 Skill 推荐后让用户确认；
-3. 审核方式：常规审核或严格学术审核，以及是否允许带风险生成；
-4. 固定结尾：Markdown 不自动生成往期精彩文章、CEA/JCEBS介绍和关注提示，改在公众号编辑器内从已发布的往期文章复制；
-5. 图表图注：对每个拟用图表分别选择添加、不添加或修改后添加，不能默认统一处理。
+- CEA 品牌语气与五套稳定模板；
+- 原文或官方网页支持的重要事实；
+- `sources.md` 中的来源台账；
+- 本地图片、隐藏来源批注和逐图图注确认；
+- 严格 QA 和中英文发表前检查；
+- 微信编辑器内仍需人工完成的步骤。
 
-未指定语言时不能自行假定。选择中英文时执行严格平行双语，标题、标题层级、每段正文、列表/表格、图注、行动提示、声明和固定结尾都必须有事实与顺序一致的中文和英文版本，不能用英文摘要代替全文英文。写作前还必须把材料中的全部缩写交给用户确认英文全称、中文译名和展示规则；写作中出现新缩写时继续确认。
+### 1.2 研究级论文解读模式
 
-### 5. 快速开始
+研究级模式强调：
 
-把整个目录放到 Codex 的 skills 目录后，可直接在任务中调用：
+- 同时使用 PDF、转换后的 Markdown 和 figures；
+- 强制分为“阶段 1 需求对齐”和“阶段 2 正式解读”；
+- 区分作者陈述、证据直接支持、作者解释和分析者评价；
+- 对理论、方法、数据、结果、图表、贡献与局限进行研究级拆解；
+- 将关键判断定位到 Section、Figure、Table、Equation、Appendix 或 PDF 页码；
+- 不把深度解读压缩成简单摘要。
+
+## 2. 项目目录说明
 
 ```text
-请使用 cea-wechat-writer，根据我提供的论文 PDF 写一篇“文章解读”。
-语言为中文，使用严格学术审核，只生成 Markdown 初稿及来源、QA 和图片文件。
+CEA_Skill/
+├── README.md                       中文默认项目教程
+├── README_EN.md                    English project guide
+├── cea-wechat-writer/              可安装和调用的 Skill
+│   ├── SKILL.md                    执行规则入口
+│   ├── README.md                   Skill 中文完整教程
+│   ├── README_EN.md                Skill English tutorial
+│   ├── agents/openai.yaml          Codex 界面元数据与默认 Prompt
+│   ├── assets/                     模板、Prompt 与品牌资产
+│   ├── references/                 证据、语言、图片、QA 等详细规则
+│   ├── sample/                     七个栏目样例
+│   └── scripts/                    创建、检索、检查和归档脚本
+├── training_data/                  历史 HTML 与 Shijie Word/PDF 材料
+├── ref-duyi-wechat-skill-suite-main/ 参考排版 Skill
+└── QR_code-png/                    CEA 二维码与联合传播图片
 ```
 
-也可以先创建标准工作目录：
+重要入口：
+
+- [Skill 执行规则](cea-wechat-writer/SKILL.md)
+- [Skill 中文完整教程](cea-wechat-writer/README.md)
+- [Skill English tutorial](cea-wechat-writer/README_EN.md)
+- [研究级论文解读工作流](cea-wechat-writer/references/research-paper-analysis-workflow.md)
+- [研究级论文解读启动 Prompt](cea-wechat-writer/assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md)
+- [七个公众号样例](cea-wechat-writer/sample/)
+
+`CEA_Work_Test/` 等工作目录不属于安装包，不应随 Skill 一起同步到 Codex skills 目录。
+
+## 3. 安装或更新 Skill
+
+### 3.1 通用路径写法
+
+本 README 面向 GitHub 团队共享，不绑定任何成员的用户名或本机目录。下文统一使用以下示例占位符：
+
+| 占位符 | 含义 | 示例 |
+|---|---|---|
+| `<repo-root>` | 克隆后的项目根目录 | `/path/to/CEA_Skill` |
+| `<skill-root>` | 实际包含 `SKILL.md` 的目录 | `/path/to/CEA_Skill/cea-wechat-writer` |
+| `<codex-skills-directory>` | 本机 Codex Skills 目录 | `/path/to/.codex/skills` |
+
+仓库内部的文档链接和命令优先使用相对路径。只有在启动实际任务、填写论文材料地址或指定输出目录时，才应替换为当前使用者本机的真实绝对路径。
+
+除非命令另有说明，下文所有仓库相对命令均从 `<repo-root>` 运行。
+
+### 3.2 同步到 Codex
 
 ```bash
-python3 scripts/new_article.py \
-  --output /absolute/path/to/output \
+CEA_REPO_ROOT="/path/to/CEA_Skill"
+CEA_CODEX_SKILLS_ROOT="/path/to/.codex/skills"
+
+mkdir -p "${CEA_CODEX_SKILLS_ROOT}/cea-wechat-writer"
+rsync -a \
+  --exclude '.DS_Store' \
+  --exclude '__pycache__' \
+  "${CEA_REPO_ROOT}/cea-wechat-writer/" \
+  "${CEA_CODEX_SKILLS_ROOT}/cea-wechat-writer/"
+```
+
+先把两个 `/path/to/...` 示例值替换为当前电脑上的实际目录，再运行命令。
+
+该命令没有使用 `--delete`，不会主动删除安装目录中的额外文件。同步后建议新建任务或重新打开任务，使 Codex 重新载入 Skill。
+
+### 3.3 确认安装
+
+应能找到：
+
+```text
+<codex-skills-directory>/cea-wechat-writer/SKILL.md
+```
+
+在任务中使用：
+
+```text
+使用 $cea-wechat-writer
+```
+
+如果未自动触发，可同时提供 `SKILL.md` 的绝对路径。
+
+## 4. 五分钟快速开始
+
+### 4.1 启动研究级论文解读
+
+```text
+使用 $cea-wechat-writer 启动“两阶段研究级论文解读”工作流。
+现在只收集输入并执行阶段 1，不得开始完整论文解读或生成最终 Markdown。
+请向我询问 Skill、论文 PDF、论文 Markdown、论文 figures 四个绝对路径，以及结果保存位置。
+保存位置可以回复“默认”；只有我明确说“开始阶段 2”后才能正式解读和保存。
+```
+
+### 4.2 启动公众号初稿
+
+```text
+使用 $cea-wechat-writer，根据我提供的材料生成 CEA 公众号 Markdown 初稿。
+先确认语言、栏目、审核方式、缩写、固定结尾和每个图表的图注选择。
+只生成本地 Markdown 与配套资料，不上传、不创建公众号草稿箱、不发布。
+```
+
+## 5. 教程一：两阶段研究级论文解读
+
+### 第 0 步：准备四个地址
+
+用户需要准备：
+
+1. Skill 目录；
+2. 论文 PDF；
+3. 由同一论文转换得到的 Markdown；
+4. 论文 figures 目录。
+
+结果保存位置是额外选择，不算第五个材料地址。没有 figures 时可以回复“无”。
+
+### 第 1 步：生成论文 Markdown
+
+如果还没有 `.md` 文件，可以使用 [MarkItDown Online](https://markitdown.online/) 将 PDF 转换为 Markdown，然后下载到本地。
+
+> 未公开、受版权保护或涉及保密限制的论文，在上传第三方网站前必须确认授权。转换后的 Markdown 只用于检索与定位，公式、表格、图表、脚注和复杂排版仍以 PDF 为准。
+
+### 第 2 步：填写输入表
+
+Skill 的首轮回复应只询问输入，不应提前解释论文：
+
+```text
+1. Skill 目录：
+2. 论文 PDF：
+3. 论文 Markdown：
+4. 论文 figures 目录：
+5. 结果保存位置：默认
+```
+
+询问论文 Markdown 路径时，必须同时提示：若尚未生成，可使用 [MarkItDown Online](https://markitdown.online/) 转换；未公开、受版权或保密限制的论文，上传第三方网站前先确认授权。不得替用户静默上传。
+
+如果已明确指定 Skill，Codex 可以回显路径并请用户确认。
+
+### 第 3 步：理解默认保存位置
+
+当用户回复“默认”时：
+
+- 保存目录是实际解析到的 `SKILL.md` 所在目录；
+- 默认文件名是 `<论文PDF文件名去除扩展名>_研究级论文解读.md`；
+- 阶段 1 不创建文件；
+- 已有同名文件时必须询问，不得静默覆盖。
+
+如果用户把项目根目录 `<repo-root>` 作为 Skill 路径，系统仍应定位到 `<repo-root>/cea-wechat-writer/SKILL.md`；因此“默认保存”通常落在 `<repo-root>/cea-wechat-writer/`。若希望保存在项目根目录或其他位置，请提供当前电脑上的自定义绝对路径。
+
+### 第 4 步：查看阶段 1
+
+阶段 1 必须完整读取 `SKILL.md` 及其指定的 references、templates、scripts 和 assets，并检查 PDF、Markdown、figures 与输出路径。回复只包含：
+
+#### A. 对任务的理解
+
+说明最终产出、三类论文材料的用途、核心约束和拟保存路径。
+
+#### B. 预定 Markdown 结构
+
+按论文实际研究类型列出一级和二级标题，不强行给非因果研究套用 DID/RCT 结构。
+
+#### C. 需要确认的事项
+
+默认建议：
+
+- 研究级完整拆解；
+- 中文为主，专业术语首次出现时保留英文；
+- 平衡覆盖问题、理论、方法、证据、贡献与局限；
+- 默认不扩展外部文献；
+- 逐图分析核心图表；
+- 分析者评价单独标记。
+
+语言仍须明确选择中文、英文、中英文或其他。选择中英文时，在正文前确认全部缩写的英文全称、中文译名和首次及后续展示规则；选择“其他”时，确认具体语言、地区变体或文字体系，以及单语还是与中文并列。
+
+#### D. 文件检查结果
+
+报告 Skill、PDF、Markdown、figures 和输出路径的读取状态、格式异常、内容对应关系与阻断项。
+
+阶段 1 完成后必须停止。以下回复不构成阶段 2 授权：
+
+- “收到”；
+- “继续检查”；
+- 再提供一个文件；
+- 仅确认某个路径。
+
+### 第 5 步：明确授权阶段 2
+
+采用默认方案时回复：
+
+```text
+按默认方案，开始阶段 2。
+```
+
+定制示例：
+
+```text
+选择严格中英文，重点关注理论机制、识别策略和研究设计局限。
+核心图表逐图分析，但不在 Markdown 中嵌入图片。
+完成缩写确认后开始阶段 2。
+```
+
+### 第 6 步：验收最终论文解读
+
+最终文档应做到：
+
+- 说明作者说了什么、为什么这样做、如何证明以及证据是否足够；
+- 解释研究问题、动机、缺口、实际贡献和限制；
+- 公式说明用途、变量、参数和论证作用；
+- 图表说明坐标、结果、作者论点、研究问题联系、异常与限制；
+- 结果说明方向、大小、不确定性与现实意义，而非只写“显著”；
+- 重要判断提供原文定位；
+- 无法核实的内容标记为“论文中无法确认”；
+- 作者观点与分析者评价清楚分开。
+
+中文输出的标准实证或理论论文通常约为 5,000—10,000 个中文字符；其他语言保持相当研究深度，不机械套用中文字符数。
+
+交付说明应列出输出完整路径、使用的源文件、无法解析或确认的内容、Skill 检查状态，以及 Prompt 与 Skill 冲突的处理方式。
+
+## 6. 教程二：CEA 公众号 Markdown 初稿
+
+### 第 1 步：提供材料
+
+可提供论文、Word、官方网页、会议议程、征稿启事、招聘材料、图片和用户笔记。用户笔记只作为线索，重要事实仍须原文或官方网页支持。
+
+### 第 2 步：完成写作前确认
+
+Skill 必须先确认：
+
+1. 语言：中文、英文、中英文或其他；
+2. 栏目：七个栏目之一；
+3. 审核方式：常规或严格学术审核，以及是否允许带风险生成；
+4. 固定结尾：默认不生成可见正文，只保留中英文隐藏复制提示；
+5. 图表图注：提取并选定图表后，逐项列出编号、内容、建议位置和建议图注，再确认添加、不添加或修改后添加。
+
+中英文模式还必须确认全部缩写的英文全称、中文译名和首次及后续展示规则。
+
+选择“其他”时，继续确认具体语言、地区变体或文字体系，以及单语还是与中文并列。
+
+公众号正文默认生成完整长文，不得写成数百字摘要；只有用户明确同意时才使用短讯模式。
+
+### 第 3 步：创建标准目录
+
+```bash
+python3 cea-wechat-writer/scripts/new_article.py \
+  --output ./work/sample-article \
   --category 文章解读 \
   --language 中文 \
   --title "暂定标题"
 ```
 
-推荐输入包括原始 PDF、DOCX、官方网页链接、会议日程、投稿启事、招聘公告和清晰的用户笔记。仅有线索而没有可靠来源时，Skill 会保留风险，不会补造事实。
+不得覆盖已有非空目录，除非用户明确授权。
 
-### 6. 标准工作流
+### 第 4 步：建立来源台账
 
-1. 收集原始材料并确认语言、栏目、审核方式和是否手动添加往期文章。
-2. 读取完整材料，登记标题、作者、机构、日期、URL 和访问日期。
-3. 按栏目检索历史示例，只借鉴结构、节奏、术语和排版。
-4. 建立“事实—来源”映射，并标记来源冲突和待确认项。
-5. 选择五套模板之一，撰写科学、准确、通顺的正文。
-6. 自动提取可用图片，放在最合适的位置并补充图注和图片台账。
-7. 按栏目深度要求展开正文，加入中英文固定结尾复制提示和联合传播图片。
-8. 运行结构化 QA，再进行人工事实、语言、学术与版权检查。
-9. 生成中英文 `README_BEFORE_PUBLISHING.md`，再交付全部本地文件。
-
-### 7. 事实与来源规则
-
-数字、日期、样本量、作者身份、单位职务、会议地点、截止日期、期刊指标、研究结果和因果结论都属于重要事实，只能来自用户原始材料或官方网页。
-
-正文在相应事实段落末尾使用隐藏锚点：
+重要事实段落使用隐藏来源锚点：
 
 ```markdown
 该研究使用2010—2022年的企业面板数据。<!-- source:S1 -->
 ```
 
-`sources.md` 中的 `S1` 必须说明来源类型、标题、路径或 URL、支持的事实、定位和核验状态。原文与官方网页冲突时应并列记录，不得擅自选择。历史文章只能作为语言和排版示范，其中的时效性事实不能自动沿用。
+`sources.md` 中的 `S1` 应说明来源、原文定位、支持事实、核验状态和图片权利。来源冲突并列披露，不擅自选择。
 
-### 8. 图片策略
+### 第 5 步：处理图片和图注
 
-图片使用顺序为：用户提供图片、原始材料中的图表、官方图片、明确授权的历史资产，最后才考虑 AI 图片。能不用 AI 图片时尽量不用。
+图片优先使用用户图片、原始材料图表和官方图片。AI 图片只有在作者同意、缺少合适原图且确有价值时使用。
 
-每张采用的图片都要：
+每个图表都要单独确认图注：
 
-- 保存为本地文件；
-- 先让用户逐项确认是否显示图注，并记录 `user-confirmed-add` 或 `user-confirmed-omit`；
-- 用户选择添加时，在正文放置其确认后的清晰图注；
-- 图和表的可见图注不使用任何标点；
-- 在图注后用 `<!-- image-source: S1, 具体定位 -->` 保存隐藏来源，不在可见图注显示“来源”或 “Source”；
-- 在 `sources.md` 记录来源、权利状态、处理方式和用途；
-- 在发布前检查清晰度、裁切、人物说明、二维码有效性和版权。
+- 添加图注；
+- 不添加图注；
+- 修改后添加。
 
-AI 封面或插图只能在作者同意、缺少合适原图且确有阅读价值时生成，并必须明确记录为 AI 生成资产。
+确认结果分别记录为 `user-confirmed-add` 或 `user-confirmed-omit`；未确认的 `NEEDS_REVIEW` 不得进入成稿。
 
-表格单元格需要换行时，不按视觉形式机械处理标点：单个词、短标签、名称、数字和并列短语不加标点；完整句子保留符合中文、英文或用户所选语言阅读习惯的必要标点。详见 `references/layout-punctuation-policy.md`。
+可见图注不使用任何标点，来源放在中英文隐藏注释中。表格单元格换行时，单个词和短标签不加标点，完整句子保留正常标点。
 
-任何作者或编辑提示只能使用中英文 HTML 注释，不得作为可见正文。底部固定使用 `assets/扫码_搜索联合传播样式-标准色版.png`。正式导入公众号前必须阅读 `README_BEFORE_PUBLISHING.md`，并在渲染预览中确认注释没有显示。
+### 第 6 步：处理固定结尾
 
-### 9. QA 与用户强制通过
+Markdown 默认不生成“往期精彩文章”、CEA/JCEBS 介绍和关注提示正文，只用中英文 HTML 注释提醒编辑从已发布文章复制。
 
-严格检查命令：
+用户明确要求写入时，必须逐字使用 [`approved-fixed-ending-copy.md`](cea-wechat-writer/references/approved-fixed-ending-copy.md)。
+
+Skill 内的联合传播源资产是 [`扫码_搜索联合传播样式-标准色版.png`](cea-wechat-writer/assets/brand/扫码_搜索联合传播样式-标准色版.png)，生成稿中复制并引用为 `assets/扫码_搜索联合传播样式-标准色版.png`。
+
+### 第 7 步：运行严格 QA
 
 ```bash
-python3 scripts/qa_markdown.py \
-  article.md \
-  --sources sources.md \
-  --report qa-report.md \
+python3 cea-wechat-writer/scripts/qa_markdown.py \
+  ./work/sample-article/article.md \
+  --sources ./work/sample-article/sources.md \
+  --report ./work/sample-article/qa-report.md \
   --strict
 ```
 
-以下问题通常应阻止稿件进入发布环节：
+`BLOCK=0` 只表示结构化检查没有发现阻断项，不能替代作者、编辑和学会审核。
 
-- 数字、日期、样本量或研究结论没有来源；
-- 作者、机构、职务、会议地点或截止日期不确定；
-- 把相关性写成因果性，或把单篇研究写成学界共识；
-- 原文和官方来源相互冲突但没有披露；
-- 报名、投稿、邮箱、二维码或费用信息未核实；
-- 图片版权、人物授权或 AI 图片标识不清；
-- 仍有模板占位符、远程图片或缺失的本地资产；
-- 存在明显错别字、语病、乱码或中英文术语不一致；
-- 正文低于栏目最低深度、缺少必需章节，或把完整推文写成数百字摘要；
-- Markdown自动生成往期精彩文章、CEA/JCEBS介绍或关注提示；
-- 缺少从已发布往期文章复制完整固定结尾的中英文注释；
-- 作者或编辑提示显示为正文，或提示注释没有同时提供中英文；
-- 缺少中英文 `README_BEFORE_PUBLISHING.md`；
-- 图片缺少隐藏来源批注，或可见图注直接显示“来源/Source”；
-- 图表可见图注包含任何标点；
-- 图表是否显示图注没有经过用户逐项确认；
-- 中英文稿不是严格平行双语，或缩写未经用户交互确认。
+同时按 [`qa-policy.md`](cea-wechat-writer/references/qa-policy.md) 完成人工语义检查；脚本不能替代事实核验、语法审校和学术判断。
 
-用户可以明确要求强制通过，但风险不能被删除。执行时应在 `qa-report.md` 和 `sources.md` 中记录 `USER_OVERRIDE`、风险、操作者说明和时间。
+### 第 8 步：发表前复核
 
-### 10. 完整样例
+阅读 `README_BEFORE_PUBLISHING.md`，检查事实、语言、图片权利、二维码、隐藏注释、固定结尾和微信编辑器实际排版。
 
-`sample/` 下提供七个可独立阅读和运行 QA 的样例：
+## 7. CEA 写作与排版硬规则
 
-| 目录 | 栏目 | 内容 |
-|---|---|---|
-| `01-article-interpretation-esg/` | 文章解读 | ESG、全要素生产率与研发创新的论文解读 |
-| `02-academic-frontier-bert/` | 学术前沿 | BERT 的基本机制与应用边界 |
-| `03-conference-notice-2025/` | 会议通知 | 已结束的CEA年会历史通知样例 |
-| `04-recent-news-2024/` | 新近动态 | CEA年会历史回顾 |
-| `05-association-history-zhang-jun/` | 学会历史 | 张军教授与CEA的长期学术联系 |
-| `06-special-issue-sustainability/` | 特刊推荐 | 已过期特刊的历史征稿样例 |
-| `07-talent-recruitment-hit/` | 人才招聘 | 已过时招聘材料的安全改写样例 |
+### 7.1 事实与科学语言
 
-每个目录都包含 `article.md`、`sources.md`、`qa-report.md` 和 `assets/`。历史会议、征稿和招聘样例均不可直接发布；它们的作用是展示如何保留时效性警告和二次检查要求。
+- 数字、日期、作者、机构、职务、样本量、期刊指标、研究结论、会议信息和截止日期必须有来源；
+- 不把相关性写成因果性；
+- 不把单篇论文写成学界共识；
+- 不夸大稳健性、外部效度和政策意义；
+- 无法核实的信息必须保留风险，不能自行补全。
 
-完整样例不是短摘要：文章解读和学会历史按长文展开，通知、动态、特刊与招聘也覆盖读者决策所需的信息。严格QA会按栏目检查最低正文深度、必需章节、固定结尾复制提示和联合传播图片。具体阈值见 `references/editorial-depth-and-footer.md`。
+### 7.2 语言与缩写
 
-### 11. 脚本
+- 每次任务都确认语言；
+- 中英文必须是严格平行全文，不是英文摘要；
+- 常见缩写也不能跳过交互确认；
+- 选择中文后采用自然中文表达；专业术语首次出现使用“中文（English）”，后文按确认规则处理。
 
-- `scripts/new_article.py`：创建标准稿件目录；
-- `scripts/retrieve_examples.py`：按栏目和主题检索可用语料；
-- `scripts/qa_markdown.py`：检查来源锚点、图片、占位符和阻断状态；
-- `scripts/build_corpus.py`：从历史 HTML 与 Word/PDF 材料重建语料索引；
-- `scripts/archive_revision.py`：经用户明确同意后归档生成稿与终稿。
+### 7.3 提示文字
 
-当前语料快照来自119篇历史 HTML 和一批 Word/PDF 训练材料。自动清洗结果并不等于可直接作为写作事实：乱码或结构退化的文章只能辅助判断排版，不能作为正文事实来源。需要更新索引时请重新运行语料构建脚本并检查报告。
-
-### 12. 目录结构
-
-```text
-cea-wechat-writer/
-├── SKILL.md
-├── README.md
-├── agents/
-├── assets/
-│   ├── brand/
-│   └── templates/
-├── references/
-│   ├── corpus/
-│   └── *.md
-├── sample/
-│   └── 01...07/
-│       ├── article.md
-│       ├── sources.md
-│       ├── qa-report.md
-│       ├── README_BEFORE_PUBLISHING.md
-│       └── assets/
-└── scripts/
-```
-
-### 13. 使用边界
-
-- 输出只是初稿，不替代作者、编辑或学会的最终审核。
-- 不把历史资料中的职务、费用、期限和联系方式视为当前信息。
-- 不上传云端、不向外发送文件，除非用户明确授权并指定服务。
-- 不在未经用户同意时归档作者修改稿作为训练数据。
-- 不保证公众号 Markdown 渲染与微信编辑器完全一致，粘贴后仍需进行视觉检查。
-
----
-
-## English Guide
-
-### 1. What this skill does
-
-`cea-wechat-writer` is a writing, fact-checking, and Markdown-layout skill for the Chinese Economic Association (UK/Europe). It converts papers, Word drafts, official webpages, conference materials, calls for papers, recruitment notices, or user notes into a reviewable WeChat article draft.
-
-It produces local files only. It does not sign in to WeChat, create a platform draft, or publish anything.
-
-A standard deliverable contains:
-
-- `article.md`: the formatted article draft;
-- `sources.md`: the evidence, fact, and image-rights ledger;
-- `qa-report.md`: automated findings and human-review reminders;
-- `README_BEFORE_PUBLISHING.md`: a bilingual pre-publication checklist;
-- `assets/`: local images actually used in the article.
-
-### 2. Why a skill comes before model fine-tuning
-
-The current corpus is useful for extracting rules, templates, and few-shot examples, but it is not large or consistent enough to train a reliable foundation model by itself. A skill can immediately use a cloud model while enforcing CEA style, evidence requirements, image policy, category templates, and quality gates.
-
-The recommended path is to use the skill first, collect author-approved revisions with explicit consent, maintain a fixed evaluation set, and consider supervised fine-tuning or preference optimization only after the dataset becomes sufficiently large and consistent.
-
-### 3. Seven categories and five templates
-
-| Category | Default template | Main purpose |
-|---|---|---|
-| Article interpretation | Research explainer | Explain a paper's question, method, findings, mechanism, and limits |
-| Academic frontier | Method frontier | Introduce a method, model, literature context, and application limits |
-| Conference notice | Notice/opportunity | Present dates, venue, programme, registration, or submission details |
-| Recent news | News recap | Report events, people, organisational developments, and significance |
-| Association history | History/profile | Organise memoirs, archival material, and institutional history |
-| Special issue | Notice/opportunity | Explain scope, editors, deadlines, fees, and submission requirements |
-| Talent recruitment | Notice/opportunity | Explain roles, fields, eligibility, materials, and contacts |
-
-The five stable templates are Research Explainer, Method Frontier, Notice/Opportunity, News Recap, and History/Profile.
-
-### 4. Required choices before drafting
-
-The skill must confirm these choices before writing:
-
-1. Language: Chinese, English, strict Chinese-English, or Other; Other requires the exact language/locale/script and whether it is standalone or paired with Chinese;
-2. Category: selected by the user, or recommended by the skill and confirmed by the user;
-3. Review mode: regular or strict academic review, and whether a risk-bearing draft is allowed;
-4. Fixed ending: do not generate Previous Highlights the CEA or JCEBS introductions or the follow prompt in Markdown; copy the complete ending from a previously published article in the WeChat editor;
-5. Figure and table captions: for every proposed visual, the user must choose add, omit, or revise and add; the skill must not apply one default to all visuals.
-
-Language must not be silently assumed. “Chinese-English” means strict parallel bilingual text: every visible title, heading, paragraph, list/table label, caption, call to action, disclaimer, footnote, and brand-footer element must have factually equivalent Chinese and English counterparts in the same order. It is not a Chinese article with an English abstract. Before drafting, every acronym—including common ones—must be shown to the user for confirmation of its English expansion, Chinese rendering, and first/subsequent-use rule. Newly encountered acronyms require another confirmation.
-
-### 5. Quick start
-
-After placing the directory in the Codex skills folder, invoke it in a task:
-
-```text
-Use cea-wechat-writer to turn the attached paper into an Article Interpretation post.
-Write in Chinese, use strict academic review, and produce only the
-Markdown draft, source ledger, QA report, bilingual pre-publication README,
-and local image assets.
-```
-
-To create an empty standard workspace first:
-
-```bash
-python3 scripts/new_article.py \
-  --output /absolute/path/to/output \
-  --category 文章解读 \
-  --language 中文 \
-  --title "Working title"
-```
-
-Preferred inputs include original PDFs, DOCX files, official URLs, conference programmes, formal calls, recruitment announcements, and well-identified user notes. A lead without reliable evidence remains a flagged lead; the skill must not invent missing facts.
-
-### 6. Evidence and scientific-language rules
-
-Numbers, dates, sample sizes, author identities, affiliations, positions, venues, deadlines, journal metrics, research findings, and causal claims are material facts. They must come from user-supplied original material or an official webpage.
-
-Material factual paragraphs use a hidden source anchor:
+任何作者或编辑提示只能写成中英文 HTML 注释，不得显示在正文中：
 
 ```markdown
-The study uses firm-level panel data from 2010 to 2022.<!-- source:S1 -->
+<!-- 请在公众号编辑器内补入固定结尾 / Add the fixed ending in the WeChat editor -->
 ```
 
-The matching `S1` entry in `sources.md` records the source type, title, path or URL, supported claims, locator, and verification status. Conflicting sources must be disclosed side by side. Historical posts may guide style and layout, but their time-sensitive claims must never be reused as current facts.
+## 8. 七个栏目与五套模板
 
-Scientific language must distinguish association from causation, one study from a scholarly consensus, and reported robustness from universal validity. The draft should be grammatical, typo-free, readable, and conservative about policy implications.
+| 栏目 | 默认模板 | 核心内容 |
+|---|---|---|
+| 文章解读 | 研究解读 | 问题、方法、结果、机制与边界 |
+| 学术前沿 | 方法前沿 | 方法、模型、文献脉络与限制 |
+| 会议通知 | 通知机会 | 时间、地点、议程、报名或投稿 |
+| 新近动态 | 新闻回顾 | 活动、人物、组织进展与意义 |
+| 学会历史 | 历史人物 | 人物回忆、组织沿革与档案 |
+| 特刊推荐 | 通知机会 | 主题、范围、编辑、期限与要求 |
+| 广纳英才 | 通知机会 | 岗位、方向、资格、材料与联系方式 |
 
-Full articles must not be reduced to a few hundred Chinese characters. Strict QA enforces category-specific depth required sections the bilingual fixed-ending copy note and the joint-promotion image. The Markdown draft does not generate Previous Highlights or the CEA and JCEBS introductions. See `references/editorial-depth-and-footer.md` for the thresholds.
+详细映射见 [`category-and-template-guide.md`](cea-wechat-writer/references/category-and-template-guide.md)。
 
-### 7. Image policy
+## 9. 训练数据与历史语料
 
-The image priority is: user-provided images, figures from the original material, official images, authorised historical assets, and only then AI-generated artwork. AI images should be avoided when a useful and licensable original image exists.
+### 9.1 历史 HTML
 
-Every selected image must be stored locally, entered in the image ledger, and checked for resolution, cropping, identity labels, QR-code validity, and rights. The user must decide for each figure or table whether its caption is shown, omitted, or revised before use. Visible figure and table captions must contain no punctuation at all. The source must appear in an immediately following hidden `image-source` comment, never as visible “Source:” caption text. AI artwork requires author approval and an explicit AI-generated label in the ledger.
+- 爬虫：[`training_data/craw.py`](training_data/craw.py)
+- 爬取结果：[`training_data/train_by_category_html/`](training_data/train_by_category_html/)
 
-When a table cell contains line breaks, punctuation follows meaning rather than layout: single words, short labels, names, numbers, and parallel phrases take no punctuation, while complete sentences retain the punctuation required for natural reading.
+历史 HTML 用于提炼栏目、结构、段落节奏、品牌元素和排版习惯。乱码或结构退化内容不得作为正文事实来源。
 
-Every author or editor instruction must be a bilingual HTML comment and must never appear as visible article text. The footer uses `assets/扫码_搜索联合传播样式-标准色版.png`. Read `README_BEFORE_PUBLISHING.md` and verify in the rendered preview that no comments are exposed before importing the article into WeChat.
+### 9.2 Shijie 材料
 
-### 8. QA and user override
+- [`training_data/train_by_Shijie_Word/`](training_data/train_by_Shijie_Word/)
 
-Run strict QA with:
+这些 Word/PDF 材料用于语言、写作、术语、结构和排版训练。邮件材料不自动等于公开授权，涉及版权或个人信息时仍须审查。
+
+### 9.3 训练策略
+
+当前项目首先采用 Skill、模板、检索和 QA，而不是直接微调基础模型。推荐流程为：
+
+1. Skill 生成初稿；
+2. 作者修改并记录理由；
+3. 仅在用户明确要求归档时保存生成稿与终稿；
+4. 建立固定测试集；
+5. 数据量、一致性和授权条件满足后再评估微调。
+
+详细路线见 [`training-strategy.md`](cea-wechat-writer/references/training-strategy.md)。
+
+## 10. 脚本、样例与验证
+
+### 10.1 主要脚本
+
+| 脚本 | 用途 |
+|---|---|
+| `new_article.py` | 创建标准公众号稿件目录 |
+| `retrieve_examples.py` | 按栏目和主题检索可用历史样例 |
+| `qa_markdown.py` | 检查来源、图片、占位符与阻断状态 |
+| `build_corpus.py` | 重建历史语料索引 |
+| `archive_revision.py` | 仅在用户明确要求归档时保存修改对 |
+
+检索示例：
 
 ```bash
-python3 scripts/qa_markdown.py \
-  article.md \
-  --sources sources.md \
-  --report qa-report.md \
-  --strict
+python3 cea-wechat-writer/scripts/retrieve_examples.py \
+  --corpus cea-wechat-writer/references/corpus/index.json \
+  --category 文章解读 \
+  --query "研究主题或标题" \
+  --limit 3
 ```
 
-Unsourced numbers or findings, uncertain authorship or affiliation, unsupported causal language, undisclosed source conflicts, unchecked submission links or contacts, unclear image rights, missing local assets, unresolved placeholders, mojibake, and serious language errors should normally block publication.
+默认检索不足 3 篇时，不跨栏目补足，也不使用 `degraded_mojibake` 正文；直接依靠正式模板与质量规范。
 
-A user may explicitly override a block, but the risk must remain visible. Record `USER_OVERRIDE`, the accepted risk, the operator note, and the time in both `qa-report.md` and `sources.md`.
+### 10.2 七个样例
 
-### 9. Complete samples
+完整样例位于 [`cea-wechat-writer/sample/`](cea-wechat-writer/sample/)，覆盖七个栏目。历史会议、特刊和招聘样例只用于展示结构，不能当作当前通知发布。
 
-The `sample/` directory contains one complete package for each of the seven categories. Every package includes an article, source ledger, QA report, and local assets. Several examples intentionally use historical conference, call-for-papers, or recruitment material to demonstrate safe expiry warnings. They are structural examples and must not be published as current notices.
+### 10.3 验证 Skill
 
-### 10. Scripts and corpus
+如本机存在 Codex 的 `skill-creator` 校验脚本，可运行：
 
-- `new_article.py` creates a standard article directory.
-- `retrieve_examples.py` retrieves usable examples by category and topic.
-- `qa_markdown.py` checks source anchors, images, placeholders, and blocking states.
-- `build_corpus.py` rebuilds the historical HTML and Word/PDF corpus index.
-- `archive_revision.py` archives generated and final drafts only with explicit user consent.
+```bash
+CEA_SKILL_CREATOR_ROOT="/path/to/skill-creator"
 
-The corpus snapshot was built from 119 historical HTML files and a collection of Word/PDF training materials. Automated extraction quality varies. Degraded or garbled files may inform layout analysis, but they must not supply article facts.
+python3 "${CEA_SKILL_CREATOR_ROOT}/scripts/quick_validate.py" \
+  ./cea-wechat-writer
+```
 
-### 11. Limits
+以上路径仅为示例；请替换为当前环境中 `skill-creator` 和本仓库的实际路径。`quick_validate.py` 需要 Python 与 PyYAML。公众号样例还应使用 `qa_markdown.py --strict` 逐一检查。
 
-- The output is a draft and does not replace final review by the author, editor, or association.
-- Historical roles, fees, dates, deadlines, and contact information are not current by default.
-- Files are not uploaded or transmitted unless the user explicitly authorises a named service.
-- Author revisions are not archived as training data without explicit consent.
-- Markdown may render differently in the WeChat editor, so a final visual check is still required.
+### 10.4 检查源目录与安装目录
+
+```bash
+CEA_REPO_ROOT="/path/to/CEA_Skill"
+CEA_CODEX_SKILLS_ROOT="/path/to/.codex/skills"
+
+diff -qr \
+  --exclude='.DS_Store' \
+  --exclude='__pycache__' \
+  "${CEA_REPO_ROOT}/cea-wechat-writer" \
+  "${CEA_CODEX_SKILLS_ROOT}/cea-wechat-writer"
+```
+
+无输出表示除排除项外两份目录一致。
+
+## 11. 输出文件与发布边界
+
+公众号模式标准输出：
+
+- `article.md`：排版后的正文初稿；
+- `sources.md`：事实与图片来源台账；
+- `qa-report.md`：自动检查和人工复核状态；
+- `README_BEFORE_PUBLISHING.md`：中英文发表前说明；
+- `assets/`：实际使用的本地图片。
+
+研究级论文解读模式默认输出一份 Markdown 到用户确认路径。
+
+任何模式都不会自动上传或发布。公众号稿件仍须在微信编辑器内：
+
+1. 手动添加往期精彩文章和核准固定结尾；
+2. 检查图片尺寸、版权和人物授权；
+3. 检查二维码和链接；
+4. 确认 HTML 注释未显示；
+5. 进行最终视觉预览。
+
+## 12. 常见问题
+
+### Skill 没有触发
+
+在任务中明确写 `$cea-wechat-writer`，并提供 `cea-wechat-writer/SKILL.md` 的绝对路径。
+
+### 没有论文 Markdown
+
+使用 [MarkItDown Online](https://markitdown.online/) 转换并下载到本地。敏感论文先确认第三方上传权限。
+
+### PDF 和 Markdown 不一致
+
+以 PDF 为准。明显不一致会阻止进入阶段 2，应先重新转换或提供正确文件。
+
+### 没有 figures
+
+回复“无”，再确认是否允许直接从 PDF 核对或提取图表。
+
+### 默认输出已存在
+
+Skill 必须先询问改名或覆盖。建议使用 `_v2.md` 等版本后缀。
+
+### QA 出现 BLOCK
+
+阅读 `qa-report.md`，修复来源、语言、图片、图注、提示或固定结尾问题。仅在用户明确接受具体风险时强制通过；`qa-report.md` 和 `sources.md` 必须同时保留 `USER_OVERRIDE`、风险、操作者说明与时间。
+
+### 注释在公众号预览中显示
+
+停止发布，检查 HTML 注释是否被编辑器转换，并重新进行渲染预览。
+
+## 13. 来源与权利说明
+
+本项目参考：
+
+- [`ref-duyi-wechat-skill-suite-main/`](ref-duyi-wechat-skill-suite-main/)
+
+训练与分析材料包括：
+
+- [`training_data/craw.py`](training_data/craw.py)
+- [`training_data/train_by_category_html/`](training_data/train_by_category_html/)
+- [`training_data/train_by_Shijie_Word/`](training_data/train_by_Shijie_Word/)
+
+以上材料用于栏目归纳、语言训练、结构分析、模板提炼、排版学习和质量检查规则建设。历史材料中的动态事实、图片权利、联系方式、人物职务和时效信息不能直接视为当前有效信息。
+
+**本项目、Skill 及相关说明的全部解释权归 CEA 所有。**
 
 ---
 
-## Skill 来源、训练材料与权利说明
-
-本 Skill 的设计与公众号排版工作流参考了：
-
-- `./ref-duyi-wechat-skill-suite-main`
-
-分类 HTML 训练材料通过以下爬虫脚本获取：
-
-- 爬虫脚本：`./training_data/craw.py`
-- 爬取结果：`./training_data/train_by_category_html`
-
-语言、写作和排版训练还使用了 Shijie 通过邮件提供的 Word 材料：
-
-- `./training_data/train_by_Shijie_Word`
-
-上述材料用于本 Skill 的栏目归纳、语言训练、结构分析、模板提炼、排版学习和质量检查规则建设。历史材料只作为训练与参考语料，其中的动态事实、图片权利、联系方式、人物职务和时效信息不能直接视为当前有效信息。
-
-**本 Skill 及相关说明的全部解释权归 CEA 所有。**
-
-## Skill Sources Training Materials and Rights Notice
-
-The design and WeChat formatting workflow of this Skill referenced:
-
-- `./ref-duyi-wechat-skill-suite-main`
-
-The categorised HTML training materials were collected with:
-
-- Crawler: `./training_data/craw.py`
-- Crawled output: `./training_data/train_by_category_html`
-
-The language writing and layout training also used Word materials sent by Shijie via email:
-
-- `./training_data/train_by_Shijie_Word`
-
-These materials were used for category analysis language training structural analysis template development layout learning and quality-control rules. Historical materials are training and reference sources only. Their dynamic facts image rights contact details professional positions and time-sensitive information must not be treated as currently valid without verification.
-
-**CEA reserves all rights of interpretation regarding this Skill and the related documentation.**
+[Read this project guide in English](README_EN.md)

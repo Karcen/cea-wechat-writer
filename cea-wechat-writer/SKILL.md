@@ -1,15 +1,35 @@
 ---
 name: cea-wechat-writer
-description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版公众号 Markdown 初稿。用于把论文 PDF、Word、网页、会议材料、招聘或特刊信息、新闻线索和用户笔记转换为“文章解读、学术前沿、会议通知、新近动态、学会历史、特刊推荐、广纳英才”七类稿件；自动建立来源台账、选择五套 CEA 模板、提取和放置图片、执行科学语言与发布前二次检查。仅生成本地 Markdown 与配套资料，不创建公众号草稿或正式发布。
+description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版公众号 Markdown 初稿，也支持基于论文 PDF、对应 Markdown 和 figures 目录开展两阶段研究级论文解读。用于生成七类 CEA 公众号稿件，或制作可作为阅读笔记、文献综述素材和后续研究参考的深度 Markdown；自动建立证据映射、解释理论与方法、核对图表公式、区分作者结论与分析者评价，并执行科学语言与质量检查。只生成本地文件，不创建公众号草稿或正式发布。
 ---
 
-# CEA 公众号写作
+# CEA 公众号写作与研究级论文解读
 
-把原始材料转换为可审阅的公众号 Markdown 初稿。将 CEA 历史语料用于结构、语气和排版示范，不把旧文章中的时间敏感事实当作当前事实。
+把原始材料转换为可审阅的 CEA 公众号 Markdown 初稿，或转换为研究级论文解读笔记。将 CEA 历史语料用于结构、语气和排版示范，不把旧文章中的时间敏感事实当作当前事实。
 
 执行命令前，先把包含本 `SKILL.md` 的目录解析为 skill 根目录；下文的 `scripts/`、`references/` 和 `assets/` 都相对于该目录。
 
-## 硬边界
+## 模式路由
+
+先根据用户要求选择一种模式，不得混用交付边界：
+
+- **公众号写作模式**：用户要求公众号推文、七类栏目、微信排版、`article.md`、来源台账或发布前检查时，执行下文“公众号写作模式”流程。
+- **研究级论文解读模式**：用户要求系统解读论文、研究级阅读笔记、文献综述素材，或同时提供论文 PDF、Markdown 和 figures 时，必须完整读取 `references/research-paper-analysis-workflow.md`，并使用 `assets/templates/research-paper-analysis.md` 作为可调整的结构基线。
+- 用户只说“论文解读”且交付用途不明确时，询问要“公众号文章”还是“研究级阅读笔记”。不得同时生成两种成品，除非用户明确要求。
+
+研究级论文解读必须遵守两阶段闸门：
+
+1. 启动时一次性询问四个绝对路径：Skill 目录、论文 PDF、论文 Markdown、论文 figures 目录。若当前 Skill 路径已由用户明确提供，可以回显并请用户确认，不要求重复粘贴。
+2. 另行询问结果保存位置。用户可以给出自定义绝对路径，也可以回复“默认”；默认保存目录是**实际解析到的 `SKILL.md` 所在目录**，默认文件名为 `<论文PDF文件名去除扩展名>_研究级论文解读.md`。用户确认保存位置前不得写文件；已有同名文件时不得覆盖，必须先询问。
+3. 询问 Markdown 路径时同时提示：若尚未生成，可在 [MarkItDown Online](https://markitdown.online/) 将 PDF 转换为 Markdown，下载到本地后再提供绝对路径；对未公开、受版权或保密限制的论文，上传第三方网站前先确认授权。不得替用户静默上传。
+4. 收齐输入后只执行阶段 1：读取规则、检查文件、提出结构、列出真正需要确认的事项，然后停止。用户仅提供路径、回复“收到”或补充资料，不等于授权阶段 2。
+5. 只有用户明确回复“开始阶段 2”“可以开始”或同等授权，并确认阶段 1 的必要选择后，才能进行完整分析和保存最终 Markdown。
+
+可复制的中英文启动提示词见 `assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md`。
+
+## 公众号写作模式
+
+### 硬边界
 
 - 只交付本地 `article.md`、`sources.md`、`qa-report.md`、`README_BEFORE_PUBLISHING.md` 和 `assets/`；不上传公众号、不创建草稿箱、不群发。
 - 重要事实只能来自用户提供的原始材料或官方网页。重要事实包括数字、日期、样本量、作者身份、单位职务、会议地点、截止日期、期刊指标、研究发现和因果结论。
@@ -18,7 +38,7 @@ description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版
 - 允许用户强制通过检查项，但必须在 `qa-report.md` 和 `sources.md` 保留 `USER_OVERRIDE`、风险、操作者说明与时间；不得静默删除风险。
 - AI 图片仅在缺少可用原图且确有阅读价值时使用。优先使用用户图片、原始材料图表和官方图片。
 
-## 开始前必须询问
+### 开始前必须询问
 
 在写正文之前先询问并记录以下选择：
 
@@ -32,9 +52,9 @@ description: 为全英/全欧中国经济学会（CEA）撰写、核查并排版
 
 如果用户已在同一请求中明确给出某项选择，不重复询问。栏目不明确时读取 `references/category-and-template-guide.md`。
 
-## 生产流程
+### 生产流程
 
-### 1. 建立工作目录
+#### 1. 建立工作目录
 
 用脚本生成标准目录：
 
@@ -48,7 +68,7 @@ python3 scripts/new_article.py \
 
 不要覆盖已有目录，除非用户明确授权。
 
-### 2. 读取原始材料
+#### 2. 读取原始材料
 
 - PDF：读取完整论文及图表、脚注、附录和元数据；长论文至少覆盖摘要、研究设计、核心表图、稳健性、局限和结论。
 - DOCX：读取正文、表格、图片顺序和批注；Word 样式只作为参考，不把视觉样式误当语义。
@@ -57,7 +77,7 @@ python3 scripts/new_article.py \
 
 将每个来源登记进 `sources.md`，遵循 `references/evidence-and-sources.md`。
 
-### 3. 选择示例与模板
+#### 3. 选择示例与模板
 
 先读取 `references/category-and-template-guide.md`，再按栏目从五套模板中选择。需要语料示例时运行：
 
@@ -72,7 +92,7 @@ python3 scripts/retrieve_examples.py \
 只借鉴示例的结构、段落节奏、术语处理和 CEA 语气。不得复制示例中的研究事实、作者信息、期刊指标、会议信息或图片权利声明。
 如果默认检索返回不足 3 篇，不得为了凑数而跨栏目或使用 `degraded_mojibake` 正文；直接依靠正式模板和质量规范。
 
-### 4. 建立证据地图
+#### 4. 建立证据地图
 
 写正文前列出：
 
@@ -91,7 +111,7 @@ python3 scripts/retrieve_examples.py \
 
 在 `sources.md` 中用同一编号说明出处和支持的事实。
 
-### 5. 撰写与排版
+#### 5. 撰写与排版
 
 - 写作前必须读取 `references/editorial-depth-and-footer.md`。默认生成完整长文，不得把公众号成稿写成数百字摘要；只有用户明确同意时才使用短讯模式。
 - 使用科学、准确、通顺的语言；消除错别字、语病、歧义和无意义的口号。
@@ -112,7 +132,7 @@ python3 scripts/retrieve_examples.py \
 - 底部固定图片必须使用 `assets/brand/扫码_搜索联合传播样式-标准色版.png`，生成稿中复制为 `assets/扫码_搜索联合传播样式-标准色版.png`；不得继续使用 `cea-europe-uk-qr.jpg`。
 - 图片下方只显示描述性图注。来源写在紧随图注的隐藏批注 `<!-- image-source: S1, 原论文图2 -->` 中，并在 `sources.md` 图片台账完整登记；可见图注不得出现“来源：”或 “Source:”。
 
-### 6. 生成来源和检查报告
+#### 6. 生成来源和检查报告
 
 完成 `article.md` 后运行：
 
@@ -137,7 +157,7 @@ python3 scripts/qa_markdown.py \
   --override "用户已确认接受列明风险"
 ```
 
-### 7. 交付
+#### 7. 交付
 
 交付以下内容并说明状态：
 
@@ -164,7 +184,11 @@ python3 scripts/qa_markdown.py \
 - 正文深度、最低篇幅与固定结尾：`references/editorial-depth-and-footer.md`
 - 历史语料使用方法：`references/corpus-guide.md`
 - Skill 与未来模型微调路线：`references/training-strategy.md`
+- 两阶段研究级论文解读：`references/research-paper-analysis-workflow.md`
 - Markdown 模板：`assets/templates/`
+- 研究级论文解读结构：`assets/templates/research-paper-analysis.md`
+- 研究级论文解读启动提示词：`assets/prompts/START_RESEARCH_PAPER_ANALYSIS.md`
 - CEA 联合传播标准色版：`assets/brand/扫码_搜索联合传播样式-标准色版.png`
 - 七个完整栏目样例：`sample/`
-- 中英文使用说明：`README.md`
+- 中文使用说明与完整教程：`README.md`
+- English documentation and full tutorial: `README_EN.md`
